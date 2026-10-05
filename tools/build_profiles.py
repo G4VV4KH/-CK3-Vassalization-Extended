@@ -1,0 +1,117 @@
+"""Generate four CB profiles from the pinned installed vanilla file; never edit game files."""
+from __future__ import annotations
+import argparse
+import hashlib
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = Path("common/casus_belli_types/00_vassalization.txt")
+PROFILES = {
+    "default": ("vassalization_cb", "1", "3", 2, 2),
+    "low": ("ve_vassalization_low_cb", "0.75", "2.25", 1, 1),
+    "high": ("ve_vassalization_high_cb", "1.5", "4.5", 3, 3),
+    "religious": ("ve_vassalization_religious_cb", "0.75", "2.25", 2, 1),
+}
+
+
+def span(text, key, indent="\t"):
+    match = re.search(r"(?m)^" + re.escape(indent + key) + r"\s*=\s*\{", text)
+    assert match, key
+    depth = 1
+    quoted = comment = escaped = False
+    for i in range(match.end(), len(text)):
+        c = text[i]
+        if comment:
+            if c == "\n": comment = False
+        elif quoted:
+            if escaped: escaped = False
+            elif c == "\\": escaped = True
+            elif c == '"': quoted = False
+        elif c == "#": comment = True
+        elif c == '"': quoted = True
+        elif c == "{": depth += 1
+        elif c == "}":
+            depth -= 1
+            if depth == 0: return match.start(), match.end(), i + 1
+    raise AssertionError("Unclosed block: " + key)
+
+
+def append(text, key, code):
+    _, _, end = span(text, key)
+    closing_line = text.rfind("\n", 0, end) + 1
+    return text[:closing_line] + code + text[closing_line:]
+
+
+def replace_block(text, key, body):
+    start, _, end = span(text, key)
+    return text[:start] + f"\t{key} = {{\n{body}\t}}" + text[end:]
+
+
+def generate(upstream):
+    # Remove only the old county cap; every profile inherits all other gates.
+    start, opened, end = span(upstream, "allowed_against_character_display_regardless")
+    gate = upstream[opened:end-1]
+    a, _, b = span(gate, "scope:defender", "\t\t")
+    removed = gate[a:b]
+    assert "vassalization_size_limit" in removed
+    gate = gate[:a] + "\t\t# Vassalization Extended: no target county cap.\n" + gate[b:].lstrip("\n")
+    base = upstream[:opened] + gate + upstream[end-1:]
+    # Discard only the trailing unrelated comment, not any script node.
+    base = base[:span(base, "vassalization_cb", "")[2]] + "\n"
+    results = []
+    for profile, (cb_id, cost, reparations, taxes, levies) in PROFILES.items():
+        cb = base.replace("vassalization_cb = {", cb_id + " = {", 1)
+        if profile in {"low", "high"}:
+            cb = append(cb, "allowed_against_character", "\t\tscope:defender = { ve_uses_feudal_obligations_trigger = yes }\n")
+            # Do not charge for terms a changed government can no longer receive.
+            a, opened, b = span(cb, "should_invalidate")
+            block = cb[opened:b-1]
+            block = block.replace("\t\tOR = {", "\t\tOR = {\n\t\t\tscope:defender = { ve_uses_feudal_obligations_trigger = no }", 1)
+            cb = cb[:opened] + block + cb[b-1:]
+        if profile == "religious":
+            cb = append(cb, "allowed_against_character_display_regardless", "\t\tcustom_description = {\n\t\t\ttext = ve_religious_protection_available_tt\n\t\t\tve_religious_protection_available_trigger = yes\n\t\t}\n")
+        old = "\t\t\tmultiply = common_cb_prestige_cost_multiplier"
+        assert cb.count(old) == 1
+        cb = cb.replace(old, old + f"\n\t\t\tmultiply = {{ value = {cost} desc = ve_{profile}_cost_factor }}")
+        risk = "no" if profile == "religious" else "yes"
+        cb = append(cb, "on_declaration", f"\t\tve_record_vassalization_terms_effect = {{ PROFILE = {profile} REFUSAL_RISK = {risk} }}\n")
+        desc = f"\t\tdesc = ve_{profile}_victory_desc\n"
+        cb = replace_block(cb, "on_victory_desc", desc)
+        # Resolve the liege change first; helper guards legacy wars and tooltips.
+        anchor = "\t\t\tresolve_title_and_vassal_change = scope:change\n\t\t}"
+        assert cb.count(anchor) == 1
+        cb = cb.replace(anchor, anchor + f"\n\t\tve_apply_vassalization_terms_effect = {{ TAX_LEVEL = {taxes} LEVY_LEVEL = {levies} RELIGIOUS_PROTECTION = {'yes' if profile == 'religious' else 'no'} }}", 1)
+        cb = replace_block(cb, "on_defeat_desc", f"\t\tdesc = ve_{profile}_defeat_desc\n")
+        assert cb.count("GOLD_VALUE = 3") == 1
+        cb = cb.replace("GOLD_VALUE = 3", "GOLD_VALUE = " + reparations)
+        if profile != "religious":
+            cb = append(cb, "on_defeat", "\t\tve_apply_refusal_devotion_penalty_effect = yes\n")
+        cb = cb.replace('cb_name = "VASSALIZATION_CB_NAME"', f'cb_name = "ve_{profile}_cb_name"')
+        cb = cb.replace('war_name = "VASSALIZATION_WAR_NAME"', f'war_name = "ve_{profile}_war_name"')
+        cb = cb.replace('war_name_base = "VASSALIZATION_WAR_NAME_BASE"', f'war_name_base = "ve_{profile}_war_name_base"')
+        cb = append(cb, "ai_score_mult", f"\t\tmultiply = ve_{profile}_ai_weight\n")
+        results.append(f"# {profile}: generated by tools/build_profiles.py from pinned vanilla.\n" + cb)
+    return "# Vassalization Extended 0.2.0. Edit the generator/helpers, not this generated file.\n\n" + "\n".join(results)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--game-root", required=True, type=Path)
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    raw = (args.game_root / SOURCE).read_bytes()
+    pinned = json.loads((ROOT / "docs/upstream.json").read_text(encoding="utf-8"))["cb_sha256"]
+    assert hashlib.sha256(raw).hexdigest() == pinned, "Vanilla drift: review and rebase first"
+    text = generate(raw.decode("utf-8-sig").replace("\r\n", "\n"))
+    path = ROOT / SOURCE
+    if args.check:
+        assert path.read_text(encoding="utf-8-sig") == text, "Generated CB file differs"
+    else:
+        path.write_text(text, encoding="utf-8-sig", newline="\n")
+    print("CB profiles match generator" if args.check else "Generated four CB profiles")
+
+
+if __name__ == "__main__":
+    main()

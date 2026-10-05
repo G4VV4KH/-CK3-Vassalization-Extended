@@ -1,0 +1,6 @@
+{
+  "game_version": "1.20.0.3",
+  "source": "common/casus_belli_types/00_vassalization.txt",
+  "cb_sha256": "b95049fb6beb1dbaa21b8862bacfb2564f734a33202fe1c3ec19ec7ee289c4eb",
+  "change": "Remove only the defender county-count gate; retain every other CB subtree."
+}

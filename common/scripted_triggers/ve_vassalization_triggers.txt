@@ -1,0 +1,41 @@
+﻿# Character scope; usable before the independent defender has a vassal contract.
+ve_uses_feudal_obligations_trigger = {
+	OR = {
+		government_has_flag = government_is_feudal
+		government_has_flag = government_is_japan_feudal
+	}
+}
+
+# CB scopes. Mirrors religious_rights_protected.is_valid in vanilla
+# special_contracts.txt (CK3 1.20.0.3), replacing subject/liege by defender/attacker.
+# The grandfather branch can only run if the defender already has a liege.
+ve_religious_protection_available_trigger = {
+	scope:defender.faith != scope:attacker.faith
+	OR = {
+		NOT = {
+			scope:attacker = {
+				OR = {
+					rite = { rite_has_tenet = tenet_tax_nonbelievers }
+					faith = { has_doctrine = special_doctrine_jizya }
+				}
+			}
+		}
+		scope:defender = {
+			exists = liege
+			NOT = { vassal_contract_has_flag = vassal_contract_cannot_revoke_titles }
+			vassal_contract_has_flag = religiously_protected
+		}
+	}
+}
+
+# An actual war always uses its declaration snapshot. The fallback exists only
+# for the pre-declaration outcome preview; old wars have no marker and no penalty.
+ve_refusal_devotion_penalty_trigger = {
+	trigger_if = {
+		limit = { exists = scope:war }
+		scope:war = { has_variable = ve_refused_religious_protection }
+	}
+	trigger_else = {
+		ve_religious_protection_available_trigger = yes
+	}
+}

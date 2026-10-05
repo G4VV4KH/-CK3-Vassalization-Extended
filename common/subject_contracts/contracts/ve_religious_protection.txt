@@ -1,0 +1,42 @@
+﻿# Religious protection promised by the Vassalization Extended peace settlement.
+# This separate obligation leaves vanilla religious_rights and Jizya untouched.
+ve_religious_protection = {
+	display_mode = checkbox
+
+	# Keep unchanged contracts visually unchanged. The promise becomes visible
+	# after the victory effect grants level 1, including for same-faith subjects.
+	is_shown = {
+		scope:subject = {
+			OR = {
+				has_character_flag = ve_granting_religious_protection
+				vassal_contract_obligation_level:ve_religious_protection = 1
+			}
+		}
+	}
+
+	# Native obligation setters also honor this gate. Open it only while the
+	# peace effect grants the promise; ordinary negotiation keeps it closed.
+	can_be_changed = {
+		scope:subject = {
+			has_character_flag = ve_granting_religious_protection
+		}
+	}
+
+	obligation_levels = {
+		ve_religious_protection_none = {
+			default = yes
+			position = { 0 0 }
+			ai_liege_desire = 0
+			ai_subject_desire = 0
+			score = 0
+		}
+		ve_religious_protection_protected = {
+			parent = ve_religious_protection_none
+			position = { 1 0 }
+			flag = religiously_protected
+			ai_liege_desire = 0
+			ai_subject_desire = 0
+			score = 0
+		}
+	}
+}

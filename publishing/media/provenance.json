@@ -1,0 +1,39 @@
+{
+  "type": "AI-generated promotional artwork",
+  "method": "OpenAI built-in image_gen",
+  "status": "RELEASE_CANDIDATE_PREPARED_NOT_PUBLISHED",
+  "subject": "In-game Valdemar swears fealty to Friedrich Barbarossa.",
+  "appearance_reference": "User-supplied, unmodified CK3 character profiles informed identity, age, physique, clothing and visual style; raw reference screenshots are not included in this source projection.",
+  "square_composition": "The selected homage composition uses mature in-game characters, a single-headed imperial eagle and the Vassalization Extended title.",
+  "landscape_revision": "Generated from the selected square artwork by extending/reframing the hall for a horizontal cover; title, faces and homage hands remain visible.",
+  "landscape_prompt": "rc1-landscape.prompt.txt",
+  "publication_assets_added_by_release_assembler": [
+    {
+      "path": "../../thumbnail.png",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "cover-square-1024.png",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "cover-paradox-1920x1080.png",
+      "dimensions": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "mechanical_export": "tools/export_media.ps1 preserves the full image using proportional fit with any necessary background padding; it does not crop or reconstruct the illustration.",
+  "limits": [
+    "Promotional illustration, not a gameplay screenshot or exact reconstruction of a historical ceremony.",
+    "AI redraw from references, not an extraction of CK3 models or a pixel-exact face copy.",
+    "Lower bodies are reconstructed because reference profiles primarily show heads and torsos."
+  ]
+}

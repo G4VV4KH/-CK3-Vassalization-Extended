@@ -1,0 +1,60 @@
+﻿# Called in CB on_declaration, after the vanilla declaration effects.
+ve_record_vassalization_terms_effect = {
+	scope:war ?= {
+		set_variable = { name = ve_contract_profile value = flag:$PROFILE$ }
+	}
+	if = {
+		limit = {
+			always = $REFUSAL_RISK$
+			ve_religious_protection_available_trigger = yes
+		}
+		scope:war ?= {
+			set_variable = { name = ve_refused_religious_protection value = yes }
+		}
+	}
+}
+
+# The current primary attacker/defender inherit the terms with the war.
+# Legacy vassalization_cb wars without our marker keep their old vanilla outcome.
+ve_apply_vassalization_terms_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				exists = scope:war
+				scope:war = { has_variable = ve_contract_profile }
+				scope:defender = { liege = scope:attacker }
+			}
+			scope:defender = {
+				if = {
+					limit = {
+						OR = {
+							has_subject_contract_group = feudal_vassal
+							has_subject_contract_group = japan_feudal_vassal
+						}
+					}
+					vassal_contract_set_obligation_level = { type = feudal_government_taxes level = $TAX_LEVEL$ }
+					vassal_contract_set_obligation_level = { type = feudal_government_levies level = $LEVY_LEVEL$ }
+					# Count the agreed terms as the ordinary contract negotiation.
+					set_subject_contract_modification_blocked = yes
+				}
+				if = {
+					limit = { always = $RELIGIOUS_PROTECTION$ }
+					# Setters also respect can_be_changed. Permit only this synchronous
+					# peace-settlement write, then immediately close the permission.
+					add_character_flag = ve_granting_religious_protection
+					vassal_contract_set_obligation_level = { type = ve_religious_protection level = 1 }
+					remove_character_flag = ve_granting_religious_protection
+				}
+			}
+		}
+	}
+}
+
+# This is a devotion LEVEL, not a subtraction from spendable piety.
+# It runs only on attacker defeat, and the engine handles the lowest-level floor.
+ve_apply_refusal_devotion_penalty_effect = {
+	if = {
+		limit = { ve_refusal_devotion_penalty_trigger = yes }
+		scope:attacker = { add_piety_level = -1 }
+	}
+}

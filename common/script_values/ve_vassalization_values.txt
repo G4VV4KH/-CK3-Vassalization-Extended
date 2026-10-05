@@ -1,0 +1,18 @@
+﻿# Explicit preferences; the engine still evaluates strength, cost and vanilla AI gates.
+# Conqueror scripted forced-war lists retain the original default CB.
+ve_default_ai_weight = {
+	value = 1
+}
+ve_low_ai_weight = {
+	value = 0.8
+	if = { limit = { scope:attacker = { has_trait = generous } } add = 0.5 }
+}
+ve_high_ai_weight = {
+	value = 0.8
+	if = { limit = { scope:attacker = { has_trait = greedy } } add = 0.5 }
+}
+ve_religious_ai_weight = {
+	value = 1
+	if = { limit = { scope:attacker = { has_trait = cynical } } add = 0.3 }
+	if = { limit = { scope:attacker = { has_trait = zealous } } multiply = 0.5 }
+}

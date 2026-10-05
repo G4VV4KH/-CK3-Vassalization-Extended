@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "title": "Vassalization Extended gameplay gallery",
+  "prepared_on": "2026-10-05",
+  "source_type": "User-provided authentic CK3 gameplay screenshots",
+  "ai_generated": false,
+  "transformation": {
+    "input": "PNG",
+    "output": "JPEG",
+    "encoder": "System.Drawing JPEG encoder",
+    "quality": 95,
+    "lossy_compression": true,
+    "resized": false,
+    "cropped": false,
+    "content_edits": false,
+    "width": 1920,
+    "height": 1080
+  },
+  "originals": "Original PNG captures retained byte-for-byte in the private release evidence archive; not included in the public gallery.",
+  "total_image_bytes": 2567271,
+  "upload_profile": {
+    "per_image_bytes_less_than": 2000000,
+    "batch_bytes_less_than": 8000000,
+    "status": "PASS",
+    "basis": "Maintained project publishing profile; not a new claim about live platform policy."
+  },
+  "visual_qa": {
+    "status": "PASS",
+    "scope": "Full-frame originals and compressed outputs inspected; UI text remains readable, dimensions and composition preserved."
+  },
+  "evidence_scope": "These screenshots illustrate selecting terms and previewing victory, defeat and white peace. They do not prove that those outcomes occurred, or establish reload or succession behavior.",
+  "images": [
+    {
+      "order": 1,
+      "file": "01-vassalization-options.jpg",
+      "caption": "Choosing vassalization terms",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 645018,
+      "sha256": "795c4843c56d8a5055c8260e8753e3fc6167146a89aea849f9dd2eb623b2e427",
+      "source_bytes": 3438919,
+      "source_sha256": "b9b16eddbc48fda3462540269609f2c112b73ef457969ca4c01040a7d48a3d8f"
+    },
+    {
+      "order": 2,
+      "file": "02-low-obligations-victory.jpg",
+      "caption": "Low Obligations: victory preview",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 676901,
+      "sha256": "86efebc3a17b219c27e0f5dea5dc4632213d5871af5a3d0448bcda4976ba30fc",
+      "source_bytes": 3511959,
+      "source_sha256": "4b67e5f20b8d40cee554455c90992611b9a5f7877dc04b712221d2b9db6f9864"
+    },
+    {
+      "order": 3,
+      "file": "03-low-obligations-defeat.jpg",
+      "caption": "Low Obligations: defeat preview",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 628545,
+      "sha256": "4a4e0c287b99ab22f8b4cf92ac5f12fb0ad7cfeec15f4e912cd8e4d4b0b4d52a",
+      "source_bytes": 3341141,
+      "source_sha256": "a43404112519edcf1bc582c2bf989f9231b172e5d78eba42cc5422df25922f97"
+    },
+    {
+      "order": 4,
+      "file": "04-low-obligations-white-peace.jpg",
+      "caption": "Low Obligations: white-peace preview",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 616807,
+      "sha256": "a4eba3b18f343846e303a0db9459171f2e9ce421ea2bf2d198b64f9d99459b78",
+      "source_bytes": 3319664,
+      "source_sha256": "17d2c6e9e8c91de32fe0aea8eacfd45c84448e73a4a5daff3eb5b2f16c8ecf26"
+    }
+  ]
+}
