@@ -5,11 +5,11 @@
 ## At a glance
 
 - 🟢 **Version 0.2.1** · Targets CK3 **1.20.0.3**.
-- 🟢 **Standalone:** no additional mod required.
+- 🟢 **Standalone:** no other mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
-- 🟢 All nine CK3 languages: **English, French, German, Japanese, Korean, Polish, Russian, Simplified Chinese and Spanish**.
-- 🔴 Changes gameplay for **both players and AI**. Larger realms can be targeted when the other requirements are met.
+- 🟢 **Languages:** English, French, German, Japanese, Korean, Polish, Russian, Simplified Chinese and Spanish.
+- 🔴 Affects **players and AI**; other war requirements still apply.
 - 🔴 Conflicts with replacements of the Forced Vassalization CB, Declare War window or subject contract groups.
 - 🔴 Refusing available religious protection risks **one level of devotion** if the attacker loses.
 
@@ -67,32 +67,33 @@ Diplomatic acceptance is unchanged. AI can choose the new profiles with explicit
 
 ## Feedback and support
 
-Include the CK3 version, mod list and load order, attacker and defender ranks, target realm size, unlock route and a screenshot of the unavailable casus belli or error.
+Include CK3 version, mods/load order, both rulers' ranks, target size, unlock route and a screenshot of the unavailable CB or error.
 
-[Report an issue on GitHub](https://github.com/G4VV4KH/-CK3-Vassalization-Extended/issues).
+[Report an issue on GitHub](https://github.com/G4VV4KH/-CK3-Vassalization-Extended/issues)
 
-**Email:** g4vv4kh@gmail.com
+Email: g4vv4kh@gmail.com
 
 ### [Want to support my work? Donate on Ko-fi 💛](https://ko-fi.com/g4vv4kh)
 
-## Find Vassalization Extended elsewhere
+## Find this mod elsewhere
 
 - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3813943691)
 - [Paradox Mods](https://mods.paradoxplaza.com/mods/162059/Any)
 - [Nexus Mods](https://www.nexusmods.com/crusaderkings3/mods/407)
-- [GitHub source](https://github.com/G4VV4KH/-CK3-Vassalization-Extended)
+- [GitHub](https://github.com/G4VV4KH/-CK3-Vassalization-Extended)
 
-## My mods
+## My other mods
 
-- [Parley: The Negotiating Table](https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081) — negotiate complete diplomatic agreements.
-- [Marriage Calculation Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163) — compare marriage candidates with readable scores and sorting.
-- [Your Own Hegemony](https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582) — unite imperial crowns under a new hegemony.
+- [Parley: The Negotiating Table](https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081) — negotiate diplomatic agreements.
+- [Marriage Calculation Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163) — compare and sort marriage candidates.
+- [Your Own Hegemony](https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582) — found a custom hegemony.
+- [Court Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3814028714) — automate court positions and recruit courtiers or knights.
 
-These mods are optional. [AGOT: Marriage Calculation Assistant](https://github.com/G4VV4KH/-CK3-AGOT-Marriage-Calculation-Assistant) remains on hold for CK3 1.20.
+These mods are optional.
 
 ## Credits
 
-The promotional cover is AI-generated artwork. Gallery images are authentic Crusader Kings III screenshots.
+Cover artwork was generated with AI. Gallery images are authentic Crusader Kings III screenshots.
 
 ## Screenshots
 

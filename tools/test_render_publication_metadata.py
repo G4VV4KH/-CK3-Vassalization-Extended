@@ -33,7 +33,7 @@ class ParadoxRichTextTests(unittest.TestCase):
         self.assertTrue(all(check["passed"] for check in checks))
         self.assertIn("<h3>At a glance</h3><ul><li>", output)
         self.assertIn("<h3>Getting started</h3><ol><li>", output)
-        self.assertIn("<h3>My mods</h3><ul><li><a href=", output)
+        self.assertIn("<h3>My other mods</h3><ul><li><a href=", output)
         self.assertIn("<strong>Version 0.2.1</strong>", output)
         with self.assertRaisesRegex(ValueError, "semantic_section_headings"):
             renderer.validate_paradox_rich_html(self.source, output.replace("<h3>At a glance</h3>", "<p>At a glance</p>"))
@@ -47,6 +47,12 @@ class ParadoxRichTextTests(unittest.TestCase):
         self.assertIn("<h3>Safe &lt;script&gt;</h3>", output)
         self.assertIn('<a href="https://example.com/?a=1&amp;b=2">A &amp; B</a>', output)
         self.assertIn("<strong>code</strong>", output)
+
+    def test_new_family_member_and_own_issue_destination_required(self):
+        for before, after in [('?id=3814028714', '?id=3813943691'),
+                              ('https://github.com/G4VV4KH/-CK3-Vassalization-Extended/issues', 'https://github.com/G4VV4KH/-CK3-Parley-The-Negotiating-Table/issues')]:
+            with self.assertRaises(ValueError):
+                renderer.validate_support_and_catalog(self.source.replace(before, after), 'canonical', 'markdown')
 
     def test_actual_rich_html_limit_counts_astral_characters_as_utf16_pairs(self):
         base_units = len(renderer.paradox_rich_html(self.source).encode("utf-16-le")) // 2

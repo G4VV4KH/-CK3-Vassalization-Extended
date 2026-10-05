@@ -32,6 +32,7 @@ RELATED_MODS = {
     "Parley: The Negotiating Table": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081",
     "Marriage Calculation Assistant": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163",
     "Your Own Hegemony": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582",
+    "Court Automation": "https://steamcommunity.com/sharedfiles/filedetails/?id=3814028714",
 }
 
 
@@ -41,7 +42,7 @@ def sha256(data: bytes) -> str:
 
 def platform_urls(source: str) -> dict[str, str]:
     """Use only links explicitly assigned in the canonical platform section."""
-    section = re.search(r"(?ms)^## Find Vassalization Extended elsewhere\s*\n(.*?)(?=^## |\Z)", source)
+    section = re.search(r"(?ms)^## Find this mod elsewhere\s*\n(.*?)(?=^## |\Z)", source)
     domains = {"github.com": "github", "steamcommunity.com": "steam", "mods.paradoxplaza.com": "paradox", "nexusmods.com": "nexus"}
     result = {}
     if section:
@@ -127,21 +128,26 @@ def validate_support_and_catalog(text: str, platform: str, markup: str) -> list[
             return LINK.findall(body)
         return [(label, url) for url, label in re.findall(r"\[url=([^\]]+)\](.*?)\[/url\]", body)]
 
-    support = section("Feedback and support", "Find Vassalization Extended elsewhere")
+    support = section("Feedback and support", "Find this mod elsewhere")
     expected = plain(DONATION_LINE).strip()
     check("required_support_text_and_url", expected in support and visible.count(DONATION_URL) == 1)
     if markup != "plain":
-        check("support_clickable_link", (DONATION_TEXT, DONATION_URL) in linked_pairs("Feedback and support", "Find Vassalization Extended elsewhere"))
+        pairs = linked_pairs("Feedback and support", "Find this mod elsewhere")
+        check("support_clickable_link", (DONATION_TEXT, DONATION_URL) in pairs)
+        check("issue_report_link", ("Report an issue on GitHub", "https://github.com/G4VV4KH/-CK3-Vassalization-Extended/issues") in pairs)
         heading = "### " + DONATION_LINE if markup == "markdown" else (
             f"[h1][url={DONATION_URL}]{DONATION_TEXT}[/url][/h1]" if platform == "steam"
             else f"[size=5][b][url={DONATION_URL}]{DONATION_TEXT}[/url][/b][/size]"
         )
         check("support_prominent_linked_heading", heading in text.splitlines())
-    catalog = section("My mods", "Credits")
+    check("shared_feedback_email", "Email: g4vv4kh@gmail.com" in support)
+    catalog_end = "Held adapter" if "\nHeld adapter\n" in visible else "Credits"
+    catalog = section("My other mods", catalog_end)
     check("populated_my_mods", all(any(name in line and url in line and " — " in line and line.rsplit(" — ", 1)[-1].strip() for line in catalog.splitlines()) for name, url in RELATED_MODS.items()))
     if markup != "plain":
-        check("my_mods_clickable_links", all(pair in linked_pairs("My mods", "Credits") for pair in RELATED_MODS.items()))
-    check("my_mods_after_platforms", visible.find("\nFind Vassalization Extended elsewhere\n") < visible.find("\nMy mods\n") < visible.find("\nCredits\n"))
+        pairs = linked_pairs("My other mods", catalog_end)
+        check("my_mods_clickable_links", len(pairs) == len(RELATED_MODS) and set(pairs) == set(RELATED_MODS.items()))
+    check("my_mods_after_platforms", visible.find("\nFind this mod elsewhere\n") < visible.find("\nMy other mods\n") < visible.find("\nCredits\n"))
     if "AGOT:" in catalog:
         check("agot_hold_preserved", any("AGOT:" in line and "on hold" in line for line in catalog.splitlines()))
     return checks
@@ -689,7 +695,7 @@ def main() -> None:
         "outputs": output_records,
         "guides": guide_records,
         "canonical_source_unchanged": source_path.read_bytes() == source_bytes,
-        "profile_limits_source": "Project publication contract 1.4.0; no live platform form queried by this renderer.",
+        "profile_limits_source": "Project publication contract 1.5.0; no live platform form queried by this renderer.",
     }
     for name, data in (("metadata.json", metadata), ("text-render-verification.json", report)):
         (args.output_dir / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
