@@ -73,12 +73,22 @@ Include the CK3 version, mod list and load order, attacker and defender ranks, t
 
 **Email:** g4vv4kh@gmail.com
 
+[Want to support my work? Donate on Ko-fi 💛](https://ko-fi.com/g4vv4kh)
+
 ## Find Vassalization Extended elsewhere
 
 - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3813943691)
 - [Paradox Mods](https://mods.paradoxplaza.com/mods/162059/Any)
 - [Nexus Mods](https://www.nexusmods.com/crusaderkings3/mods/407)
 - [GitHub source](https://github.com/G4VV4KH/-CK3-Vassalization-Extended)
+
+## My mods
+
+- [Parley: The Negotiating Table](https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081) — negotiate diplomatic agreements.
+- [Marriage Calculation Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163) — compare and sort marriage candidates by score.
+- [Your Own Hegemony](https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582) — unite imperial crowns under a new hegemony.
+
+These mods are optional. AGOT: Marriage Calculation Assistant remains on hold for CK3 1.20.
 
 ## Credits
 

@@ -23,6 +23,14 @@ LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 BB_TAG = re.compile(r"\[/?(?:h[1-6]|b|size(?:=\d+)?|list(?:=1)?|olist)\]|\[\*\]")
 TITLE = "Vassalization Extended"
 GAME_TARGET = "1.20.0.3"
+DONATION_TEXT = "Want to support my work? Donate on Ko-fi 💛"
+DONATION_URL = "https://ko-fi.com/g4vv4kh"
+DONATION_LINE = f"[{DONATION_TEXT}]({DONATION_URL})"
+RELATED_MODS = {
+    "Parley: The Negotiating Table": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081",
+    "Marriage Calculation Assistant": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163",
+    "Your Own Hegemony": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582",
+}
 
 
 def sha256(data: bytes) -> str:
@@ -40,6 +48,56 @@ def platform_urls(source: str) -> dict[str, str]:
             if platform:
                 result[platform] = url
     return result
+
+
+def platform_source(source: str, platform: str) -> str:
+    """All platforms retain the owner's approved linked support wording."""
+    return source
+
+
+def unformat_bbcode(text: str) -> str:
+    text = re.sub(r"\[url=([^\]]+)\](.*?)\[/url\]", lambda m: f"{m[2]}: {m[1]}", text)
+    return BB_TAG.sub("", text)
+
+
+def validate_support_and_catalog(text: str, platform: str, markup: str) -> list[dict]:
+    """Required support and catalogue slots must survive every presentation."""
+    checks = []
+
+    def check(name: str, ok: bool) -> None:
+        checks.append({"name": platform + ": " + name, "passed": bool(ok)})
+        if not ok:
+            raise ValueError(f"Publication validation failed: {platform}: {name}")
+
+    visible = plain(text) if markup == "markdown" else unformat_bbcode(text) if markup == "bbcode" else text
+
+    def section(start: str, end: str) -> str:
+        match = re.search(r"(?ms)^" + re.escape(start) + r"\s*\n(.*?)(?=^" + re.escape(end) + r"\s*\n|\Z)", visible)
+        return match[1] if match else ""
+
+    def linked_pairs(start: str, end: str) -> list[tuple[str, str]]:
+        lines = text.splitlines()
+        labels = [plain(line).strip() if markup == "markdown" else unformat_bbcode(line).strip() for line in lines]
+        if start not in labels or end not in labels:
+            return []
+        body = "\n".join(lines[labels.index(start) + 1:labels.index(end)])
+        if markup == "markdown":
+            return LINK.findall(body)
+        return [(label, url) for url, label in re.findall(r"\[url=([^\]]+)\](.*?)\[/url\]", body)]
+
+    support = section("Feedback and support", "Find Vassalization Extended elsewhere")
+    expected = plain(DONATION_LINE).strip()
+    check("required_support_text_and_url", expected in support and visible.count(DONATION_URL) == 1)
+    if markup != "plain":
+        check("support_clickable_link", (DONATION_TEXT, DONATION_URL) in linked_pairs("Feedback and support", "Find Vassalization Extended elsewhere"))
+    catalog = section("My mods", "Credits")
+    check("populated_my_mods", all(any(name in line and url in line and " — " in line and line.rsplit(" — ", 1)[-1].strip() for line in catalog.splitlines()) for name, url in RELATED_MODS.items()))
+    if markup != "plain":
+        check("my_mods_clickable_links", all(pair in linked_pairs("My mods", "Credits") for pair in RELATED_MODS.items()))
+    check("my_mods_after_platforms", visible.find("\nFind Vassalization Extended elsewhere\n") < visible.find("\nMy mods\n") < visible.find("\nCredits\n"))
+    if "AGOT:" in catalog:
+        check("agot_hold_preserved", any("AGOT:" in line and "on hold" in line for line in catalog.splitlines()))
+    return checks
 
 
 def flatten_tables(text: str) -> str:
@@ -105,8 +163,7 @@ def bbcode(text: str, platform: str) -> str:
 
 def visible_words(text: str, is_bbcode: bool = False) -> list[str]:
     if is_bbcode:
-        text = re.sub(r"\[url=([^\]]+)\](.*?)\[/url\]", lambda m: f"{m[2]}: {m[1]}", text)
-        text = BB_TAG.sub("", text)
+        text = unformat_bbcode(text)
     text = re.sub(r"(?m)^(?:[-*]\s+|\d+\.\s+)", "", text)
     return text.split()
 
@@ -119,16 +176,18 @@ def validate(source: str, outputs: dict[str, str]) -> list[dict]:
         if not ok:
             raise ValueError(f"Publication validation failed: {name}")
 
-    canonical = plain(source)
     check("exact_public_title", source.splitlines()[0] == "# " + TITLE)
+    checks.extend(validate_support_and_catalog(source, "canonical", "markdown"))
     for name, output in outputs.items():
         is_bbcode = name.endswith("bbcode.txt")
+        platform = "nexus" if "nexus" in name else "steam" if "steam" in name else "paradox"
+        canonical = plain(platform_source(source, platform))
         check(name + ": complete_visible_content", visible_words(output, is_bbcode) == visible_words(canonical))
         check(name + ": no_unresolved_template_tokens", not re.search(r"\{\{[^}]+\}\}|<<[^>]+>>", output))
         check(name + ": no_markdown_table", not re.search(r"(?m)^\|", output))
         check(name + ": plain_contact_email", "g4vv4kh@gmail.com" in output and "mailto:" not in output)
-    check("nexus_no_donation_solicitation", not re.search(r"ko-fi|donate", outputs["description-nexus.bbcode.txt"], re.I))
-    check("steam_project_profile_under_8000_bytes", len(outputs["description-steam.bbcode.txt"].encode("utf-8")) < 8000)
+        checks.extend(validate_support_and_catalog(output, platform, "bbcode" if is_bbcode else "plain"))
+    check("steam_project_profile_under_7999_bytes", len(outputs["description-steam.bbcode.txt"].encode("utf-8")) < 7999)
     paradox = outputs["description-paradox.txt"]
     html_projection = "".join("<p>" + html.escape(p).replace("\n", "<br>") + "</p>" for p in paradox.strip().split("\n\n"))
     check("paradox_project_profile_under_10000_utf16_units", len(paradox.encode("utf-16-le")) // 2 < 10000 and len(html_projection.encode("utf-16-le")) // 2 < 10000)
@@ -372,7 +431,7 @@ def main() -> None:
     outputs = {
         "description-steam.bbcode.txt": bbcode(source, "steam"),
         "description-paradox.txt": plain(source),
-        "description-nexus.bbcode.txt": bbcode(source, "nexus"),
+        "description-nexus.bbcode.txt": bbcode(platform_source(source, "nexus"), "nexus"),
     }
     checks = validate(source, outputs)
     guides = render_guides(args.candidate, args.build_id, wrapper)
@@ -399,6 +458,7 @@ def main() -> None:
     if args.candidate == "release":
         from render_readme import GALLERY, render_readme
         extras["README.md"] = render_readme(source)
+        checks.extend(validate_support_and_catalog(extras["README.md"], "github", "markdown"))
         for name, caption in GALLERY:
             rel = "publishing/media/gallery/" + name
             data = (ROOT / rel).read_bytes()
@@ -445,6 +505,7 @@ def main() -> None:
             "Confirm final platform fields and rendered formatting in the upload forms."
         ],
         "provenance_note": "Promotional cover is AI-generated; authentic gameplay screenshots must be identified separately.",
+        "nexus_support_profile": "The approved Ko-fi CTA and URL are preserved, matching the other platforms; no support paragraph is omitted or reworded.",
         "external_publication_performed": False,
     }
     if args.candidate != "release":
@@ -462,7 +523,7 @@ def main() -> None:
         "outputs": output_records,
         "guides": guide_records,
         "canonical_source_unchanged": source_path.read_bytes() == source_bytes,
-        "profile_limits_source": "Project publication contract 1.2; no live platform form queried.",
+        "profile_limits_source": "Project publication contract 1.3.1; no live platform form queried by this renderer.",
     }
     for name, data in (("metadata.json", metadata), ("text-render-verification.json", report)):
         (args.output_dir / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
