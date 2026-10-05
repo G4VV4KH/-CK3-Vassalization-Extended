@@ -75,10 +75,10 @@ Include the CK3 version, mod list and load order, attacker and defender ranks, t
 
 ## Find Vassalization Extended elsewhere
 
-- [GitHub source](https://github.com/G4VV4KH/-CK3-Vassalization-Extended)
+- [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3813943691)
+- [Paradox Mods](https://mods.paradoxplaza.com/mods/162059/Any)
 - [Nexus Mods](https://www.nexusmods.com/crusaderkings3/mods/407)
-
-More store links will be added as they become available.
+- [GitHub source](https://github.com/G4VV4KH/-CK3-Vassalization-Extended)
 
 ## Credits
 
