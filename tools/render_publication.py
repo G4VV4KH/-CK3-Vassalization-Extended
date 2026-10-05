@@ -230,7 +230,7 @@ def validate(source: str, outputs: dict[str, str]) -> list[dict]:
     return checks
 
 
-INSTALL_TEMPLATE = """Vassalization Extended 0.2.0 — manual installation
+INSTALL_TEMPLATE = """Vassalization Extended 0.2.1 — manual installation
 Release candidate: {build_id}
 Targets Crusader Kings III 1.20. No additional mod is required.
 Vanilla routes to unlock Forced Vassalization retain their own requirements.
@@ -294,7 +294,7 @@ This is a prepared release candidate, not a published store download.
 Contact: g4vv4kh@gmail.com
 """
 
-RELEASE_INSTALL = """Vassalization Extended 0.2.0 — manual installation
+RELEASE_INSTALL = """Vassalization Extended 0.2.1 — manual installation
 For Crusader Kings III 1.20
 
 Installation
@@ -329,7 +329,8 @@ eligibility conditions for religious rights. Peaceful vassalization is unchanged
 Compatibility and saves
 
 No additional mod is required. The mod adds no DLC requirement; vanilla unlock
-routes retain their own requirements. English and Russian text is included.
+routes retain their own requirements. All nine CK3 languages are included: English, French, German, Japanese,
+Korean, Polish, Russian, Simplified Chinese and Spanish.
 
 The mod replaces the Forced Vassalization CB file, the Declare War window and
 the vanilla subject-contract group file. Load order cannot merge competing
@@ -341,7 +342,7 @@ Removing it or downgrading during such a campaign is unsupported.
 Contact: g4vv4kh@gmail.com
 """
 
-TESTING_TEMPLATE = """Vassalization Extended 0.2.0 — проверка {candidate_label} и скриншоты
+TESTING_TEMPLATE = """Vassalization Extended 0.2.1 — проверка {candidate_label} и скриншоты
 Сборка: {build_id}
 Игра: CK3 1.20.0.3
 
@@ -458,7 +459,7 @@ def main() -> None:
     parser.add_argument("--candidate", choices=("rc1", "rc2", "release"), default="rc1")
     parser.add_argument("--launcher-wrapper", help="Existing or planned local .mod basename; default derives from version and candidate.")
     args = parser.parse_args()
-    wrapper = args.launcher_wrapper or ("vassalization_extended.mod" if args.candidate == "release" else f"game_vassalization_extended_0_2_0_{args.candidate}.mod")
+    wrapper = args.launcher_wrapper or ("vassalization_extended.mod" if args.candidate == "release" else f"game_vassalization_extended_0_2_1_{args.candidate}.mod")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*\.mod", wrapper):
         parser.error("--launcher-wrapper must be a .mod basename")
     source_path = ROOT / "publishing/description.en.md"
@@ -514,16 +515,16 @@ def main() -> None:
     metadata = {
         "public_title": TITLE,
         "short_description": "Remove the Forced Vassalization county limit and choose low, normal, high or religious peace terms before declaring war.",
-        "version": "0.2.0",
+        "version": "0.2.1",
         "candidate": args.candidate.upper(),
         "build_id": args.build_id,
         "local_launcher_wrapper": wrapper,
         "supported_version": "1.20.*",
         "compatibility_target": GAME_TARGET,
-        "nexus_file_version": "0.2.0",
+        "nexus_file_version": "0.2.1",
         "nexus_file_description": f"For CK3 {GAME_TARGET}",
         "description_language": "English",
-        "game_localization_languages": ["English", "Russian"],
+        "game_localization_languages": ["English", "French", "German", "Japanese", "Korean", "Polish", "Russian", "Simplified Chinese", "Spanish"],
         "descriptor_tags": ["Gameplay", "Balance", "Warfare"],
         "additional_required_mods": [],
         "additional_dlc_requirement": None,
@@ -570,3 +571,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

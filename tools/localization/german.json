@@ -1,0 +1,40 @@
+{
+  "names": {
+    "low": "Vasallisierung: Niedrige Pflichten",
+    "default": "Vasallisierung: Normale Pflichten",
+    "high": "Vasallisierung: Hohe Pflichten",
+    "religious": "Vasallisierung: Religiöser Schutz"
+  },
+  "strings": {
+    "ve_vassalization_group_name": "Vasallisierung — Bedingungen wählen",
+    "ve_vassalization_group_desc": "Klappt diese Gruppe aus, um die Pflichten und religiösen Rechte des künftigen Vasallen zu wählen. Jede Option zeigt ihre Prestigekosten, die Siegesbedingungen und die Folgen einer Niederlage.",
+    "ve_refusal_risk_desc": "War religiöser Schutz bei der Kriegserklärung verfügbar und wurde nicht angeboten, verliert der Angreifer bei einer Niederlage zusätzlich eine [piety_level|E]. Dieses Risiko wird bei der Kriegserklärung festgelegt und bei einer Nachfolge mit dem Krieg übernommen. Bei einem Weißen Frieden entfällt diese Strafe.",
+    "ve_religious_protection_available_tt": "Religiöser Schutz muss nach den Vertragsbedingungen des Grundspiels verfügbar sein: unterschiedliche Glauben und keine Beschränkung durch Dschizya oder die Besteuerung der Ungläubigen. Es gilt die Ausnahme des Grundspiels für einen bereits religiös geschützten Vertrag ohne Schutz vor Titelaberkennung.",
+    "ve_contract_lock_desc": "Die feudalen Pflichten gelten als vereinbarte Vertragsänderung und unterliegen der üblichen Beschränkung für weitere Verhandlungen.",
+    "ve_protection_rights_desc": "Der Lehnsherr kann weder die Bekehrung des Vasallen verlangen noch die Aufgabe Gemeinde bekehren in den geschützten Ländereien einsetzen. Bei Titelaberkennungen kann er nicht allein den Glaubensunterschied als Grund anführen, um Tyrannei zu vermeiden. Dies ist kein allgemeiner Schutz vor Titelaberkennungen. Die religiöse Garantie kann bei gewöhnlichen Vertragsverhandlungen nicht aufgegeben werden.",
+    "ve_low_cb_desc": "Niedrige feudale Steuern (Grundwert: 2,5 %) und niedriger Aufgebotsbeitrag (10 %). Prestigekosten: 75 % einer gewöhnlichen Vasallisierung. Reparationen bei Niederlage: 75 % des gewöhnlichen Betrags.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_default_cb_desc": "Normale feudale Steuern (Grundwert: 10 %) und normaler Aufgebotsbeitrag (25 %); andere Regierungsformen behalten ihre gewöhnlichen Pflichten. Prestigekosten und Reparationen bei Niederlage entsprechen einer gewöhnlichen Vasallisierung.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_high_cb_desc": "Hohe feudale Steuern (Grundwert: 15 %) und hoher Aufgebotsbeitrag (35 %). Prestigekosten: 150 % einer gewöhnlichen Vasallisierung. Reparationen bei Niederlage: 150 % des gewöhnlichen Betrags.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_religious_cb_desc": "Religiöser Schutz für jede Regierungsform. Feudale Vasallen zahlen normale Steuern (Grundwert: 10 %) und stellen einen niedrigen Aufgebotsbeitrag (10 %); andere Regierungsformen behalten ihre gewöhnlichen Pflichten. Prestigekosten und Reparationen bei Niederlage: 75 % der gewöhnlichen Beträge. Kein Verlust einer Hingabestufe wegen verweigerten Schutzes.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_victory_desc": "[defender.GetShortUIName|U] wird direkter Vasall von [attacker.GetShortUIName], behält alle Titel und erhält niedrige feudale Steuern und einen niedrigen Aufgebotsbeitrag. Grundwerte: 2,5 % Steuern / 10 % Aufgebote. $ve_contract_lock_desc$",
+    "ve_default_victory_desc": "[defender.GetShortUIName|U] wird direkter Vasall von [attacker.GetShortUIName] und behält alle Titel. Feudale Verträge erhalten normale Pflichten (Grundwerte: 10 % Steuern / 25 % Aufgebote); andere Regierungsformen behalten ihre gewöhnlichen Pflichten. $ve_contract_lock_desc$",
+    "ve_high_victory_desc": "[defender.GetShortUIName|U] wird direkter Vasall von [attacker.GetShortUIName], behält alle Titel und erhält hohe feudale Steuern und einen hohen Aufgebotsbeitrag. Grundwerte: 15 % Steuern / 35 % Aufgebote. $ve_contract_lock_desc$",
+    "ve_religious_victory_desc": "[defender.GetShortUIName|U] wird direkter Vasall von [attacker.GetShortUIName], behält alle Titel und erhält religiösen Schutz. Feudale Verträge erhalten normale Steuern und einen niedrigen Aufgebotsbeitrag (Grundwerte: 10 % / 10 %); andere Regierungsformen behalten ihre gewöhnlichen Pflichten.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_defeat_desc": "[defender.GetShortUIName|U] bleibt unabhängig. [attacker.GetShortUIName|U] zahlt 75 % der gewöhnlichen Vasallisierungsreparationen (normalerweise 2,25 Jahreseinkommen vor besonderen Modifikatoren) und erleidet die gewöhnlichen Folgen einer Niederlage.\n\n$ve_refusal_risk_desc$",
+    "ve_default_defeat_desc": "[defender.GetShortUIName|U] bleibt unabhängig. [attacker.GetShortUIName|U] zahlt die gewöhnlichen Vasallisierungsreparationen (normalerweise 3 Jahreseinkommen vor besonderen Modifikatoren) und erleidet die gewöhnlichen Folgen einer Niederlage.\n\n$ve_refusal_risk_desc$",
+    "ve_high_defeat_desc": "[defender.GetShortUIName|U] bleibt unabhängig. [attacker.GetShortUIName|U] zahlt 150 % der gewöhnlichen Vasallisierungsreparationen (normalerweise 4,5 Jahreseinkommen vor besonderen Modifikatoren) und erleidet die gewöhnlichen Folgen einer Niederlage.\n\n$ve_refusal_risk_desc$",
+    "ve_religious_defeat_desc": "[defender.GetShortUIName|U] bleibt unabhängig. [attacker.GetShortUIName|U] zahlt 75 % der gewöhnlichen Vasallisierungsreparationen (normalerweise 2,25 Jahreseinkommen vor besonderen Modifikatoren) und erleidet die gewöhnlichen Folgen einer Niederlage. Dieser Kriegsgrund verursacht keinen Verlust einer Hingabestufe wegen verweigerten religiösen Schutzes.",
+    "ve_default_cost_factor": "Normale Pflichten",
+    "ve_low_cost_factor": "Niedrige Pflichten",
+    "ve_high_cost_factor": "Hohe Pflichten",
+    "ve_religious_cost_factor": "Religiöser Schutz",
+    "ve_religious_protection": "Religiöser Schutz durch Friedensvertrag",
+    "ve_religious_protection_none": "Keine Friedensgarantie",
+    "ve_religious_protection_none_short": "Nicht garantiert",
+    "ve_religious_protection_none_desc": "Dieser Vertrag enthält keine religiöse Garantie, die durch einen Friedensschluss von Vassalization Extended auferlegt wurde.",
+    "ve_religious_protection_protected": "Religiöser Schutz durch Friedensvertrag",
+    "ve_religious_protection_protected_short": "Durch Frieden geschützt",
+    "ve_religious_protection_protected_desc": "$ve_protection_rights_desc$"
+  },
+  "concept": "Ein [casus_belli|E] für die erzwungene [vassalization|E]. Das Ziel muss ein unabhängiger benachbarter [ruler|E] von niedrigerem Rang sein. Der Kriegsgrund wird normalerweise durch den [perk|E] [GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )] freigeschaltet; andere zulässige Freischaltmöglichkeiten des Grundspiels gelten weiterhin.\n\nVassalization Extended entfernt die Obergrenze für die Anzahl der Grafschaften und lässt Euch die Bedingungen wählen. Bei feudalen Zielen stehen niedrige, normale oder hohe Pflichten sowie religiöser Schutz zur Wahl; bei anderen Regierungsformen normale Bedingungen oder religiöser Schutz. Für den Schutz gelten die Vertragsvoraussetzungen des Grundspiels. Prestigekosten und Reparationen bei Niederlage hängen von der gewählten Option ab. War Schutz bei der Kriegserklärung verfügbar, kostet eine Niederlage mit einer anderen Option eine Hingabestufe."
+}

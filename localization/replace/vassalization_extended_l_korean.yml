@@ -1,0 +1,2 @@
+﻿l_korean:
+ game_concept_vassalize_casus_belli_desc:0 "등급이 더 낮은 이웃 독립 [ruler|E]를 강제로 [vassalization|E]할 수 있게 해 주는 [casus_belli|E]입니다. 보통 [GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )] [perk|E]으로 잠금 해제되며, 기본 게임의 다른 잠금 해제 조건도 계속 적용됩니다.\n\nVassalization Extended는 영지 수 제한을 없애고 봉신화 조건을 선택할 수 있게 합니다. 봉건제 대상에게는 낮은 책무, 보통 책무, 높은 책무 또는 교권 보호를 선택할 수 있으며, 다른 정부 형태에는 보통 조건 또는 교권 보호를 선택할 수 있습니다. 교권 보호의 선택 가능 여부는 기본 게임의 계약 조건을 따릅니다. 위신 비용과 패배 배상금은 선택한 조건에 따라 달라집니다. 선전포고 당시 교권 보호를 선택할 수 있었는데도 다른 조건으로 패배하면 헌신 단계가 한 단계 하락합니다."

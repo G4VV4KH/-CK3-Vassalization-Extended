@@ -1,0 +1,40 @@
+{
+  "names": {
+    "low": "Vassalisation : obligations faibles",
+    "default": "Vassalisation : obligations normales",
+    "high": "Vassalisation : obligations élevées",
+    "religious": "Vassalisation : protection religieuse"
+  },
+  "strings": {
+    "ve_vassalization_group_name": "Vassalisation — choisir les conditions",
+    "ve_vassalization_group_desc": "Développez ce groupe pour choisir les obligations et les droits religieux du futur vassal. Chaque option indique son coût en prestige, les conditions de victoire et les conséquences d’une défaite.",
+    "ve_refusal_risk_desc": "Si la protection religieuse était disponible lors de la déclaration de cette guerre, une défaite sans l’avoir proposée fait également perdre un [piety_level|E] à l’attaquant. Ce risque est fixé à la déclaration et se transmet avec la guerre en cas de succession. Une paix blanche n’entraîne pas cette pénalité.",
+    "ve_religious_protection_available_tt": "La protection religieuse doit être disponible selon les conditions du contrat du jeu de base : des confessions différentes et aucune restriction liée à la djizîa ou à l’imposition des incroyants, sauf l’exception prévue pour un contrat bénéficiant déjà d’une protection religieuse, sans protection contre la révocation des titres.",
+    "ve_contract_lock_desc": "Les obligations féodales comptent comme une modification du contrat acceptée par les deux parties et sont soumises à la restriction habituelle sur les renégociations.",
+    "ve_protection_rights_desc": "Le seigneur lige ne peut pas exiger la conversion du vassal, utiliser la tâche Convertir le comté dans les terres protégées, ni invoquer la seule différence de foi pour éviter la tyrannie lors d’une révocation de titre. Cette protection n’interdit pas toutes les révocations de titres. La garantie religieuse ne peut pas être abandonnée lors des négociations ordinaires du contrat.",
+    "ve_low_cb_desc": "Impôts féodaux bas (taux de base : 2,5 %) et faible contribution en levées (10 %). Coût en prestige : 75 % du coût d’une vassalisation ordinaire. Réparations en cas de défaite : 75 % des réparations ordinaires.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_default_cb_desc": "Impôts féodaux normaux (taux de base : 10 %) et contribution normale en levées (25 %) ; les autres gouvernements conservent leurs obligations habituelles. Le coût en prestige et les réparations en cas de défaite sont ceux d’une vassalisation ordinaire.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_high_cb_desc": "Impôts féodaux élevés (taux de base : 15 %) et contribution élevée en levées (35 %). Coût en prestige : 150 % du coût d’une vassalisation ordinaire. Réparations en cas de défaite : 150 % des réparations ordinaires.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_religious_cb_desc": "Protection religieuse pour tout type de gouvernement. Les vassaux féodaux paient des impôts normaux (taux de base : 10 %) et fournissent une faible contribution en levées (10 %) ; les autres conservent leurs obligations habituelles. Coût en prestige et réparations en cas de défaite : 75 % des montants ordinaires. Aucune perte de niveau de dévotion pour refus de protection.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_victory_desc": "[defender.GetShortUIName|U] devient vassal direct de [attacker.GetShortUIName] et conserve ses titres, avec des impôts féodaux bas et une faible contribution en levées. Taux de base : 2,5 % d’impôts / 10 % de levées. $ve_contract_lock_desc$",
+    "ve_default_victory_desc": "[defender.GetShortUIName|U] devient vassal direct de [attacker.GetShortUIName] et conserve ses titres. Les contrats féodaux reçoivent des obligations normales (taux de base : 10 % d’impôts / 25 % de levées) ; les autres gouvernements conservent leurs obligations habituelles. $ve_contract_lock_desc$",
+    "ve_high_victory_desc": "[defender.GetShortUIName|U] devient vassal direct de [attacker.GetShortUIName] et conserve ses titres, avec des impôts féodaux élevés et une contribution élevée en levées. Taux de base : 15 % d’impôts / 35 % de levées. $ve_contract_lock_desc$",
+    "ve_religious_victory_desc": "[defender.GetShortUIName|U] devient vassal direct de [attacker.GetShortUIName], conserve ses titres et bénéficie d’une protection religieuse. Les contrats féodaux reçoivent des impôts normaux et une faible contribution en levées (taux de base : 10 % / 10 %) ; les autres gouvernements conservent leurs obligations habituelles.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_defeat_desc": "[defender.GetShortUIName|U] conserve son indépendance. [attacker.GetShortUIName|U] paie 75 % des réparations d’une vassalisation ordinaire (normalement 2,25 années de revenus, avant les modificateurs particuliers) et subit les conséquences habituelles d’une défaite.\n\n$ve_refusal_risk_desc$",
+    "ve_default_defeat_desc": "[defender.GetShortUIName|U] conserve son indépendance. [attacker.GetShortUIName|U] paie les réparations d’une vassalisation ordinaire (normalement 3 années de revenus, avant les modificateurs particuliers) et subit les conséquences habituelles d’une défaite.\n\n$ve_refusal_risk_desc$",
+    "ve_high_defeat_desc": "[defender.GetShortUIName|U] conserve son indépendance. [attacker.GetShortUIName|U] paie 150 % des réparations d’une vassalisation ordinaire (normalement 4,5 années de revenus, avant les modificateurs particuliers) et subit les conséquences habituelles d’une défaite.\n\n$ve_refusal_risk_desc$",
+    "ve_religious_defeat_desc": "[defender.GetShortUIName|U] conserve son indépendance. [attacker.GetShortUIName|U] paie 75 % des réparations d’une vassalisation ordinaire (normalement 2,25 années de revenus, avant les modificateurs particuliers) et subit les conséquences habituelles d’une défaite. Ce casus belli n’entraîne aucune perte de niveau de dévotion pour refus de protection religieuse.",
+    "ve_default_cost_factor": "Obligations normales",
+    "ve_low_cost_factor": "Obligations faibles",
+    "ve_high_cost_factor": "Obligations élevées",
+    "ve_religious_cost_factor": "Protection religieuse",
+    "ve_religious_protection": "Protection religieuse garantie par la paix",
+    "ve_religious_protection_none": "Aucune garantie de paix",
+    "ve_religious_protection_none_short": "Non garantie",
+    "ve_religious_protection_none_desc": "Ce contrat ne comporte aucune garantie religieuse imposée par un accord de paix de Vassalization Extended.",
+    "ve_religious_protection_protected": "Protection religieuse garantie par la paix",
+    "ve_religious_protection_protected_short": "Garantie par la paix",
+    "ve_religious_protection_protected_desc": "$ve_protection_rights_desc$"
+  },
+  "concept": "Un [casus_belli|E] permettant la [vassalization|E] forcée d’un [ruler|E] indépendant, voisin et de rang inférieur. Il est normalement débloqué par l’[perk|E] [GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )] ; les autres moyens de déblocage admissibles du jeu de base restent valables.\n\nVassalization Extended supprime la limite de comtés et permet de choisir les conditions. Pour les cibles féodales, vous pouvez choisir des obligations faibles, normales ou élevées, ou une protection religieuse ; pour les autres gouvernements, des conditions normales ou une protection religieuse. La protection suit les conditions d’admissibilité des contrats du jeu de base. Le coût en prestige et les réparations en cas de défaite dépendent de l’option choisie. Si la protection était disponible à la déclaration, une défaite avec une autre option fait perdre un niveau de dévotion."
+}

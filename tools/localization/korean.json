@@ -1,0 +1,40 @@
+{
+  "names": {
+    "low": "봉신화: 낮은 책무",
+    "default": "봉신화: 보통 책무",
+    "high": "봉신화: 높은 책무",
+    "religious": "봉신화: 교권 보호"
+  },
+  "strings": {
+    "ve_vassalization_group_name": "봉신화 — 조건 선택",
+    "ve_vassalization_group_desc": "펼쳐서 장차 봉신이 될 인물의 책무와 교권을 선택합니다. 각 선택지에는 위신 비용, 승리 조건, 패배 시 결과가 표시됩니다.",
+    "ve_refusal_risk_desc": "선전포고 당시 교권 보호를 선택할 수 있었는데도 이를 제안하지 않고 패배하면, 공격자의 [piety_level|E]가 추가로 한 단계 하락합니다. 이 위험은 선전포고 시 확정되며 전쟁과 함께 승계됩니다. 무조건 평화에는 이 불이익이 적용되지 않습니다.",
+    "ve_religious_protection_available_tt": "교권 보호는 기본 게임의 계약 조건을 충족해야 선택할 수 있습니다. 양측의 신앙이 다르고 지즈야 또는 불신자 과세에 따른 제한이 없어야 합니다. 단, 이미 교권 보호가 적용되어 있으면서 작위 박탈 보호는 없는 계약에는 기본 게임과 같은 예외가 적용됩니다.",
+    "ve_contract_lock_desc": "봉건제 책무의 설정은 합의에 따른 계약 변경으로 간주되며, 이후 재협상에는 통상적인 제한이 적용됩니다.",
+    "ve_protection_rights_desc": "주군은 봉신에게 개종을 요구하거나 보호받는 땅에서 영지 신앙 개종을 사용할 수 없습니다. 또한 작위를 박탈할 때 신앙만을 이유로 내세워 폭정을 피할 수 없습니다. 모든 작위 박탈을 막아 주는 보호는 아닙니다. 이 교권 보장은 통상적인 계약 협상에서 철회할 수 없습니다.",
+    "ve_low_cb_desc": "낮은 봉건제 세금(기본 2.5%)과 징집병 부과(10%)를 적용합니다. 위신 비용: 통상적인 봉신화의 75%. 패배 배상금: 통상적인 배상금의 75%.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_default_cb_desc": "보통 수준의 봉건제 세금(기본 10%)과 징집병 부과(25%)를 적용합니다. 다른 정부 형태는 통상적인 책무를 유지합니다. 위신 비용과 패배 배상금: 통상적인 봉신화와 동일합니다.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_high_cb_desc": "높은 봉건제 세금(기본 15%)과 징집병 부과(35%)를 적용합니다. 위신 비용: 통상적인 봉신화의 150%. 패배 배상금: 통상적인 배상금의 150%.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_religious_cb_desc": "모든 정부 형태에 교권 보호를 적용합니다. 봉건제 봉신은 보통 수준의 세금(기본 10%)과 낮은 징집병 부과(10%)를 부담하며, 다른 정부 형태는 통상적인 책무를 유지합니다. 위신 비용과 패배 배상금: 통상적인 금액의 75%. 보호를 제안하지 않은 데 따른 헌신 단계 불이익은 없습니다.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_victory_desc": "[defender.GetShortUIName|U](은)는 작위를 유지한 채 [attacker.GetShortUIName]의 직속 봉신이 되며, 낮은 봉건제 세금과 징집병 부과를 부담합니다. 기본 비율: 세금 2.5% / 징집병 10%. $ve_contract_lock_desc$",
+    "ve_default_victory_desc": "[defender.GetShortUIName|U](은)는 작위를 유지한 채 [attacker.GetShortUIName]의 직속 봉신이 됩니다. 봉건 계약에는 보통 수준의 책무(기본 세금 10% / 징집병 25%)가 적용되며, 다른 정부 형태는 통상적인 책무를 유지합니다. $ve_contract_lock_desc$",
+    "ve_high_victory_desc": "[defender.GetShortUIName|U](은)는 작위를 유지한 채 [attacker.GetShortUIName]의 직속 봉신이 되며, 높은 봉건제 세금과 징집병 부과를 부담합니다. 기본 비율: 세금 15% / 징집병 35%. $ve_contract_lock_desc$",
+    "ve_religious_victory_desc": "[defender.GetShortUIName|U](은)는 작위를 유지한 채 [attacker.GetShortUIName]의 직속 봉신이 되고 교권 보호를 받습니다. 봉건 계약에는 보통 수준의 세금과 낮은 징집병 부과(기본 10% / 10%)가 적용되며, 다른 정부 형태는 통상적인 책무를 유지합니다.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_defeat_desc": "[defender.GetShortUIName|U](은)는 독립을 유지합니다. [attacker.GetShortUIName|U](은)는 통상적인 봉신화 배상금의 75%(특수 보정 적용 전에는 보통 연간 수입의 2.25배)를 지불하며, 통상적인 패배 효과를 받습니다.\n\n$ve_refusal_risk_desc$",
+    "ve_default_defeat_desc": "[defender.GetShortUIName|U](은)는 독립을 유지합니다. [attacker.GetShortUIName|U](은)는 통상적인 봉신화 배상금(특수 보정 적용 전에는 보통 연간 수입의 3배)을 지불하며, 통상적인 패배 효과를 받습니다.\n\n$ve_refusal_risk_desc$",
+    "ve_high_defeat_desc": "[defender.GetShortUIName|U](은)는 독립을 유지합니다. [attacker.GetShortUIName|U](은)는 통상적인 봉신화 배상금의 150%(특수 보정 적용 전에는 보통 연간 수입의 4.5배)를 지불하며, 통상적인 패배 효과를 받습니다.\n\n$ve_refusal_risk_desc$",
+    "ve_religious_defeat_desc": "[defender.GetShortUIName|U](은)는 독립을 유지합니다. [attacker.GetShortUIName|U](은)는 통상적인 봉신화 배상금의 75%(특수 보정 적용 전에는 보통 연간 수입의 2.25배)를 지불하며, 통상적인 패배 효과를 받습니다. 이 전쟁 명분에는 교권 보호를 제안하지 않은 데 따른 헌신 단계 불이익이 없습니다.",
+    "ve_default_cost_factor": "보통 책무",
+    "ve_low_cost_factor": "낮은 책무",
+    "ve_high_cost_factor": "높은 책무",
+    "ve_religious_cost_factor": "교권 보호",
+    "ve_religious_protection": "평화로 보장된 교권 보호",
+    "ve_religious_protection_none": "평화 보장 없음",
+    "ve_religious_protection_none_short": "보장되지 않음",
+    "ve_religious_protection_none_desc": "이 계약에는 Vassalization Extended의 평화 협정으로 부여된 교권 보장이 없습니다.",
+    "ve_religious_protection_protected": "평화로 보장된 교권 보호",
+    "ve_religious_protection_protected_short": "평화로 보호됨",
+    "ve_religious_protection_protected_desc": "$ve_protection_rights_desc$"
+  },
+  "concept": "등급이 더 낮은 이웃 독립 [ruler|E]를 강제로 [vassalization|E]할 수 있게 해 주는 [casus_belli|E]입니다. 보통 [GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )] [perk|E]으로 잠금 해제되며, 기본 게임의 다른 잠금 해제 조건도 계속 적용됩니다.\n\nVassalization Extended는 영지 수 제한을 없애고 봉신화 조건을 선택할 수 있게 합니다. 봉건제 대상에게는 낮은 책무, 보통 책무, 높은 책무 또는 교권 보호를 선택할 수 있으며, 다른 정부 형태에는 보통 조건 또는 교권 보호를 선택할 수 있습니다. 교권 보호의 선택 가능 여부는 기본 게임의 계약 조건을 따릅니다. 위신 비용과 패배 배상금은 선택한 조건에 따라 달라집니다. 선전포고 당시 교권 보호를 선택할 수 있었는데도 다른 조건으로 패배하면 헌신 단계가 한 단계 하락합니다."
+}

@@ -1,0 +1,2 @@
+﻿l_japanese:
+ game_concept_vassalize_casus_belli_desc:0 "隣接する低ランクの独立[ruler|E]を強制的に[vassalization|E]させる[casus_belli|E]です。通常は[perk|E]「[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]」でアンロックされますが、バニラにあるほかのアンロック条件も引き続き適用されます。\n\nVassalization Extendedは伯爵領数の上限を撤廃し、従属の条件を選べるようにします。封建制の相手には、軽い義務、通常の義務、重い義務、または宗教的保護を選択できます。ほかの政体の相手には、通常の条件または宗教的保護を選択できます。宗教的保護を選択できるかどうかは、バニラの契約条件に従います。必要な威信点と敗北時の賠償金は選択肢によって変わります。宣戦時に宗教的保護を選択できたのに別の選択肢で敗北した場合、献身レベルが一段階低下します。"

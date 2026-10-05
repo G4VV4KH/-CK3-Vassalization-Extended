@@ -1,0 +1,2 @@
+﻿l_simp_chinese:
+ game_concept_vassalize_casus_belli_desc:0 "一种允许强制[vassalization|E]等级较低的接壤独立[ruler|E]的[casus_belli|E]。通常通过[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )][perk|E]解锁；原版中其他符合条件的解锁途径仍然有效。\n\nVassalization Extended取消了伯爵领数量上限，并允许你选择条款。封建制目标可以选择低、正常或高义务，或宗教保护；其他政体可以选择正常条款或宗教保护。宗教保护仍须满足原版契约的资格条件。威望花费和战败赔款取决于所选条款。如果宣战时可以提供宗教保护，却选择了其他条款，战败会损失一级奉献等级。"

@@ -1,0 +1,40 @@
+{
+  "names": {
+    "low": "Wasalizacja: niskie zobowiązania",
+    "default": "Wasalizacja: zwykłe zobowiązania",
+    "high": "Wasalizacja: wysokie zobowiązania",
+    "religious": "Wasalizacja: ochrona religijna"
+  },
+  "strings": {
+    "ve_vassalization_group_name": "Wasalizacja — wybór warunków",
+    "ve_vassalization_group_desc": "Rozwiń, aby wybrać zobowiązania i prawa religijne przyszłego wasala. Każdy wariant pokazuje koszt w prestiżu, warunki zwycięstwa i skutki porażki.",
+    "ve_refusal_risk_desc": "Jeśli przy wypowiadaniu tej wojny dostępna była ochrona religijna, porażka bez jej zaoferowania dodatkowo kosztuje napastnika jeden [piety_level|E]. Ryzyko to ustala się przy wypowiedzeniu wojny i jest ono dziedziczone wraz z nią. Biały pokój nie powoduje tej kary.",
+    "ve_religious_protection_available_tt": "Ochrona religijna musi być dostępna zgodnie z warunkami kontraktu w podstawowej grze: różne wiary oraz brak ograniczenia związanego z dżizją lub podatkiem od niewiernych. Wyjątkiem od tego ograniczenia jest, tak jak w podstawowej grze, kontrakt już zapewniający ochronę religijną, ale bez ochrony przed odebraniem tytułów.",
+    "ve_contract_lock_desc": "Zobowiązania feudalne liczą się jako uzgodniona zmiana kontraktu, więc dalsze negocjacje podlegają zwykłemu ograniczeniu.",
+    "ve_protection_rights_desc": "Senior nie może żądać nawrócenia wasala, wykonywać zadania Nawróć hrabstwo na chronionych ziemiach ani powoływać się wyłącznie na wiarę, by uniknąć tyranii przy odbieraniu tytułów. Nie jest to całkowita ochrona przed odebraniem tytułów. Gwarancji religijnej nie można znieść w ramach zwykłych negocjacji kontraktu.",
+    "ve_low_cb_desc": "Niskie podatki feudalne (bazowo 2,5%) i mała liczba dostarczanych kmieci (10%). Koszt w prestiżu: 75% kosztu zwykłej wasalizacji. Reparacje po porażce: 75% zwykłej kwoty.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_default_cb_desc": "Zwykłe podatki feudalne (bazowo 10%) i zwykła liczba dostarczanych kmieci (25%); inne ustroje zachowują swoje zwykłe zobowiązania. Koszt w prestiżu i reparacje po porażce: jak przy zwykłej wasalizacji.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_high_cb_desc": "Wysokie podatki feudalne (bazowo 15%) i duża liczba dostarczanych kmieci (35%). Koszt w prestiżu: 150% kosztu zwykłej wasalizacji. Reparacje po porażce: 150% zwykłej kwoty.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_religious_cb_desc": "Ochrona religijna dla każdego ustroju. Wasale feudalni płacą zwykłe podatki (bazowo 10%) i dostarczają małą liczbę kmieci (10%); inne ustroje zachowują zwykłe zobowiązania. Koszt w prestiżu i reparacje po porażce: 75% zwykłych wartości. Brak kary do poziomu religijności za odmowę ochrony.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_victory_desc": "[defender.GetShortUIName|U] zostaje bezpośrednim wasalem postaci [attacker.GetShortUIName], zachowując swoje tytuły, z niskimi podatkami feudalnymi i małą liczbą dostarczanych kmieci. Stawki bazowe: 2,5% podatku / 10% pospolitego ruszenia. $ve_contract_lock_desc$",
+    "ve_default_victory_desc": "[defender.GetShortUIName|U] zostaje bezpośrednim wasalem postaci [attacker.GetShortUIName], zachowując swoje tytuły. Kontrakty feudalne otrzymują zwykłe zobowiązania (bazowo 10% podatku / 25% pospolitego ruszenia); inne ustroje zachowują swoje zwykłe zobowiązania. $ve_contract_lock_desc$",
+    "ve_high_victory_desc": "[defender.GetShortUIName|U] zostaje bezpośrednim wasalem postaci [attacker.GetShortUIName], zachowując swoje tytuły, z wysokimi podatkami feudalnymi i dużą liczbą dostarczanych kmieci. Stawki bazowe: 15% podatku / 35% pospolitego ruszenia. $ve_contract_lock_desc$",
+    "ve_religious_victory_desc": "[defender.GetShortUIName|U] zostaje bezpośrednim wasalem postaci [attacker.GetShortUIName], zachowując swoje tytuły i otrzymując ochronę religijną. Kontrakty feudalne otrzymują zwykłe podatki i małą liczbę dostarczanych kmieci (bazowo 10% / 10%); inne ustroje zachowują swoje zwykłe zobowiązania.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_defeat_desc": "[defender.GetShortUIName|U] zachowuje niezależność. [attacker.GetShortUIName|U] płaci 75% zwykłych reparacji za wasalizację (zazwyczaj równowartość 2,25 rocznych dochodów, przed zastosowaniem specjalnych modyfikatorów) i ponosi zwykłe skutki porażki.\n\n$ve_refusal_risk_desc$",
+    "ve_default_defeat_desc": "[defender.GetShortUIName|U] zachowuje niezależność. [attacker.GetShortUIName|U] płaci zwykłe reparacje za wasalizację (zazwyczaj równowartość 3 rocznych dochodów, przed zastosowaniem specjalnych modyfikatorów) i ponosi zwykłe skutki porażki.\n\n$ve_refusal_risk_desc$",
+    "ve_high_defeat_desc": "[defender.GetShortUIName|U] zachowuje niezależność. [attacker.GetShortUIName|U] płaci 150% zwykłych reparacji za wasalizację (zazwyczaj równowartość 4,5 rocznych dochodów, przed zastosowaniem specjalnych modyfikatorów) i ponosi zwykłe skutki porażki.\n\n$ve_refusal_risk_desc$",
+    "ve_religious_defeat_desc": "[defender.GetShortUIName|U] zachowuje niezależność. [attacker.GetShortUIName|U] płaci 75% zwykłych reparacji za wasalizację (zazwyczaj równowartość 2,25 rocznych dochodów, przed zastosowaniem specjalnych modyfikatorów) i ponosi zwykłe skutki porażki. Ten casus belli nie nakłada kary do poziomu religijności za odmowę ochrony religijnej.",
+    "ve_default_cost_factor": "Zwykłe zobowiązania",
+    "ve_low_cost_factor": "Niskie zobowiązania",
+    "ve_high_cost_factor": "Wysokie zobowiązania",
+    "ve_religious_cost_factor": "Ochrona religijna",
+    "ve_religious_protection": "Ochrona religijna zagwarantowana pokojem",
+    "ve_religious_protection_none": "Brak gwarancji pokojowej",
+    "ve_religious_protection_none_short": "Brak gwarancji",
+    "ve_religious_protection_none_desc": "Ten kontrakt nie zawiera gwarancji religijnej narzuconej warunkami pokoju z moda Vassalization Extended.",
+    "ve_religious_protection_protected": "Ochrona religijna zagwarantowana pokojem",
+    "ve_religious_protection_protected_short": "Gwarancja pokojowa",
+    "ve_religious_protection_protected_desc": "$ve_protection_rights_desc$"
+  },
+  "concept": "[casus_belli|E], którego celem jest wymuszona [vassalization|E]. Można go użyć, gdy celem jest niezależny, sąsiedni [ruler|E] o niższej randze. Zwykle odblokowuje go [perk|E] [GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]; pozostałe sposoby odblokowania dostępne w podstawowej grze nadal obowiązują.\n\nVassalization Extended znosi limit hrabstw i pozwala wybrać warunki. W przypadku celów feudalnych można wybrać niskie, zwykłe lub wysokie zobowiązania albo ochronę religijną; przy innych ustrojach dostępne są zwykłe warunki lub ochrona religijna. Ochrona wymaga spełnienia warunków kontraktu z podstawowej gry. Koszt w prestiżu i reparacje po porażce zależą od wybranego wariantu. Jeśli przy wypowiedzeniu wojny ochrona była dostępna, porażka po wybraniu innego wariantu kosztuje jeden poziom religijności."
+}

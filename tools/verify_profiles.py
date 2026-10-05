@@ -318,8 +318,10 @@ def main():
     check("religious contract change and visibility gates permit only the temporary subject-scoped write, with immediate cleanup", check_religious_permission)
 
     def check_localization():
+        from verify_localization import LANGUAGES, verify
+        verify(ROOT, args.game_root)
         inventories = []
-        for language in ("english", "russian"):
+        for language in LANGUAGES:
             keys = set()
             for path in (ROOT / "localization").rglob(f"*_l_{language}.yml"):
                 raw = path.read_bytes()
@@ -332,11 +334,11 @@ def main():
             required = {f"ve_{profile}_{suffix}" for profile, _, _ in PROFILES.values() for suffix in ("cb_name", "war_name", "war_name_base", "victory_desc", "defeat_desc", "cost_factor")}
             assert required <= keys, f"Missing {language} keys: {sorted(required - keys)}"
             inventories.append(keys)
-        assert inventories[0] == inventories[1], "English and Russian key sets differ"
+        assert all(keys == inventories[0] for keys in inventories), "Language key sets differ"
         gui = (ROOT / "gui/interaction_declare_war.gui").read_text(encoding="utf-8-sig")
         for cb_id in PROFILES:
             assert f"GetCasusBelliType('{cb_id}')" in gui, f"GUI does not reference {cb_id}"
-    check("English/Russian localization and native GUI reference every profile", check_localization)
+    check("All nine CK3 localizations preserve keys, substitutions and native GUI profile references", check_localization)
 
     gui_upstream_raw = (args.game_root / GUI_PATH).read_bytes()
     gui_mod_raw = (ROOT / GUI_PATH).read_bytes()

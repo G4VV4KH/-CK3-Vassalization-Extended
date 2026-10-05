@@ -1,0 +1,40 @@
+{
+  "names": {
+    "low": "Avasallamiento: obligaciones bajas",
+    "default": "Avasallamiento: obligaciones normales",
+    "high": "Avasallamiento: obligaciones altas",
+    "religious": "Avasallamiento: protección religiosa"
+  },
+  "strings": {
+    "ve_vassalization_group_name": "Avasallamiento — elegir las condiciones",
+    "ve_vassalization_group_desc": "Despliega este grupo para elegir las obligaciones y los derechos religiosos del futuro vasallo. Cada opción muestra su coste de prestigio, las condiciones de victoria y las consecuencias de una derrota.",
+    "ve_refusal_risk_desc": "Si la protección religiosa estaba disponible al declarar esta guerra y no se ofreció, una derrota también le cuesta al atacante un [piety_level|E]. Este riesgo se fija al declarar la guerra y se hereda junto con ella. La paz blanca no conlleva esta penalización.",
+    "ve_religious_protection_available_tt": "La protección religiosa debe estar disponible según las condiciones del contrato del juego base: fes distintas y ninguna restricción por la yizia o el gravamen a los no creyentes, salvo la excepción del juego base para un contrato que ya tenga protección religiosa, pero no protección contra la revocación de títulos.",
+    "ve_contract_lock_desc": "Las obligaciones feudales cuentan como un cambio de contrato acordado y quedan sujetas a la restricción habitual sobre futuras negociaciones.",
+    "ve_protection_rights_desc": "El señor no puede exigir la conversión del vasallo, usar Convertir fe del condado en las tierras protegidas ni alegar únicamente la diferencia de fe para evitar la tiranía al revocar títulos. Esto no protege frente a todas las revocaciones de títulos. La garantía religiosa no puede eliminarse en las negociaciones ordinarias del contrato.",
+    "ve_low_cb_desc": "Impuestos feudales bajos (base: 2,5 %) y contribución a levas baja (10 %). Coste de prestigio: 75 % de un avasallamiento ordinario. Reparaciones por derrota: 75 % de las reparaciones ordinarias.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_default_cb_desc": "Impuestos feudales normales (base: 10 %) y contribución a levas normal (25 %); los demás gobiernos conservan sus obligaciones habituales. El coste de prestigio y las reparaciones por derrota son los de un avasallamiento ordinario.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_high_cb_desc": "Impuestos feudales altos (base: 15 %) y contribución a levas alta (35 %). Coste de prestigio: 150 % de un avasallamiento ordinario. Reparaciones por derrota: 150 % de las reparaciones ordinarias.\n\n$ve_contract_lock_desc$\n\n$ve_refusal_risk_desc$",
+    "ve_religious_cb_desc": "Protección religiosa para cualquier gobierno. Los vasallos feudales pagan impuestos normales (base: 10 %) y aportan una contribución a levas baja (10 %); los demás conservan sus obligaciones habituales. Coste de prestigio y reparaciones por derrota: 75 % de los importes ordinarios. No se pierde ningún nivel de devoción por rechazar la protección.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_victory_desc": "[defender.GetShortUIName|U] pasa a ser vasallo directo de [attacker.GetShortUIName] y conserva sus títulos, con impuestos feudales bajos y una contribución a levas baja. Porcentajes básicos: 2,5 % de impuestos / 10 % de levas. $ve_contract_lock_desc$",
+    "ve_default_victory_desc": "[defender.GetShortUIName|U] pasa a ser vasallo directo de [attacker.GetShortUIName] y conserva sus títulos. Los contratos feudales reciben obligaciones normales (base: 10 % de impuestos / 25 % de levas); los demás gobiernos conservan sus obligaciones habituales. $ve_contract_lock_desc$",
+    "ve_high_victory_desc": "[defender.GetShortUIName|U] pasa a ser vasallo directo de [attacker.GetShortUIName] y conserva sus títulos, con impuestos feudales altos y una contribución a levas alta. Porcentajes básicos: 15 % de impuestos / 35 % de levas. $ve_contract_lock_desc$",
+    "ve_religious_victory_desc": "[defender.GetShortUIName|U] pasa a ser vasallo directo de [attacker.GetShortUIName], conserva sus títulos y recibe protección religiosa. Los contratos feudales reciben impuestos normales y una contribución a levas baja (base: 10 % / 10 %); los demás gobiernos conservan sus obligaciones habituales.\n\n$ve_protection_rights_desc$\n\n$ve_contract_lock_desc$",
+    "ve_low_defeat_desc": "[defender.GetShortUIName|U] conserva su independencia. [attacker.GetShortUIName|U] paga el 75 % de las reparaciones de un avasallamiento ordinario (normalmente 2,25 años de ingresos, antes de los modificadores especiales) y sufre las consecuencias habituales de la derrota.\n\n$ve_refusal_risk_desc$",
+    "ve_default_defeat_desc": "[defender.GetShortUIName|U] conserva su independencia. [attacker.GetShortUIName|U] paga las reparaciones de un avasallamiento ordinario (normalmente 3 años de ingresos, antes de los modificadores especiales) y sufre las consecuencias habituales de la derrota.\n\n$ve_refusal_risk_desc$",
+    "ve_high_defeat_desc": "[defender.GetShortUIName|U] conserva su independencia. [attacker.GetShortUIName|U] paga el 150 % de las reparaciones de un avasallamiento ordinario (normalmente 4,5 años de ingresos, antes de los modificadores especiales) y sufre las consecuencias habituales de la derrota.\n\n$ve_refusal_risk_desc$",
+    "ve_religious_defeat_desc": "[defender.GetShortUIName|U] conserva su independencia. [attacker.GetShortUIName|U] paga el 75 % de las reparaciones de un avasallamiento ordinario (normalmente 2,25 años de ingresos, antes de los modificadores especiales) y sufre las consecuencias habituales de la derrota. Este casus belli no provoca ninguna pérdida de nivel de devoción por rechazar la protección religiosa.",
+    "ve_default_cost_factor": "Obligaciones normales",
+    "ve_low_cost_factor": "Obligaciones bajas",
+    "ve_high_cost_factor": "Obligaciones altas",
+    "ve_religious_cost_factor": "Protección religiosa",
+    "ve_religious_protection": "Protección religiosa garantizada por la paz",
+    "ve_religious_protection_none": "Sin garantía de paz",
+    "ve_religious_protection_none_short": "Sin garantía",
+    "ve_religious_protection_none_desc": "Este contrato no contiene ninguna garantía religiosa impuesta por un acuerdo de paz de Vassalization Extended.",
+    "ve_religious_protection_protected": "Protección religiosa garantizada por la paz",
+    "ve_religious_protection_protected_short": "Protegida por la paz",
+    "ve_religious_protection_protected_desc": "$ve_protection_rights_desc$"
+  },
+  "concept": "Un [casus_belli|E] que permite el [vassalization|E] por la fuerza de un [ruler|E] independiente, vecino y de rango inferior. Normalmente se desbloquea con el [perk|E] [GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]; las demás vías de desbloqueo válidas del juego base siguen siendo aplicables.\n\nVassalization Extended elimina el límite de condados y permite elegir las condiciones. Para los objetivos feudales se pueden elegir obligaciones bajas, normales o altas, o protección religiosa; para los demás gobiernos, condiciones normales o protección religiosa. La protección sigue los requisitos de los contratos del juego base. El coste de prestigio y las reparaciones por derrota dependen de la opción elegida. Si la protección estaba disponible al declarar la guerra, una derrota con otra opción cuesta un nivel de devoción."
+}

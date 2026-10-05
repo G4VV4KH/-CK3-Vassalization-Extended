@@ -2,11 +2,11 @@
 
 ## At a glance
 
-- 🟢 **Version 0.2.0** · Targets CK3 **1.20**.
+- 🟢 **Version 0.2.1** · Targets CK3 **1.20**.
 - 🟢 **Standalone:** no additional mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
-- 🟢 Names, descriptions and tooltips in **English and Russian**.
+- 🟢 All nine CK3 languages: **English, French, German, Japanese, Korean, Polish, Russian, Simplified Chinese and Spanish**.
 - 🔴 Changes gameplay for **both players and AI**. Larger realms can be targeted when the other requirements are met.
 - 🔴 Conflicts with replacements of the Forced Vassalization CB, Declare War window or subject contract groups.
 - 🔴 Refusing available religious protection risks **one level of devotion** if the attacker loses.
@@ -51,7 +51,7 @@ Peaceful **Offer Vassalization** and **Swear Fealty** retain their existing cond
 
 ## Compatibility and load order
 
-Replaces `common/casus_belli_types/00_vassalization.txt`, `gui/interaction_declare_war.gui` and `common/subject_contracts/groups/subject_contract_groups.txt`. Adds a religious peace obligation to the vanilla vassal contract groups and overrides the Forced Vassalization concept description in English and Russian. Other mods changing these files, groups or descriptions need a compatibility review; load order alone cannot merge their changes.
+Replaces `common/casus_belli_types/00_vassalization.txt`, `gui/interaction_declare_war.gui` and `common/subject_contracts/groups/subject_contract_groups.txt`. Adds a religious peace obligation to the vanilla vassal contract groups and overrides the Forced Vassalization concept description in all nine CK3 languages. Other mods changing these files, groups or descriptions need a compatibility review; load order alone cannot merge their changes.
 
 No total-conversion compatibility is claimed. The mod adds no new DLC requirement; vanilla unlock routes retain their own requirements.
 
@@ -61,7 +61,7 @@ The mod adds three CB IDs, war variables and a contract obligation. **Keep the m
 
 Wars already active under the original CB before this update retain their former resolution and do not acquire the new devotion penalty. Existing contract obligation order is preserved; the new religious peace term is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
 
-Diplomatic acceptance is unchanged. AI can choose the new profiles with explicit personality preferences; the scripted Conqueror forced-war route continues to use ordinary vassalization. Some vanilla memory and war-message classifications recognize only the original CB and use generic text for new variants. Other languages retain the vanilla concept explanation and do not have dedicated profile translations.
+Diplomatic acceptance is unchanged. AI can choose the new profiles with explicit personality preferences; the scripted Conqueror forced-war route continues to use ordinary vassalization. Some vanilla memory and war-message classifications recognize only the original CB and use generic text for new variants.
 
 ## Feedback and support
 
