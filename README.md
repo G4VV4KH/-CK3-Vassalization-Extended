@@ -73,7 +73,7 @@ Include the CK3 version, mod list and load order, attacker and defender ranks, t
 
 **Email:** g4vv4kh@gmail.com
 
-[Want to support my work? Donate on Ko-fi 💛](https://ko-fi.com/g4vv4kh)
+### [Want to support my work? Donate on Ko-fi 💛](https://ko-fi.com/g4vv4kh)
 
 ## Find Vassalization Extended elsewhere
 

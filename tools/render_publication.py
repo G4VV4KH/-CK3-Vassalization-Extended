@@ -90,6 +90,11 @@ def validate_support_and_catalog(text: str, platform: str, markup: str) -> list[
     check("required_support_text_and_url", expected in support and visible.count(DONATION_URL) == 1)
     if markup != "plain":
         check("support_clickable_link", (DONATION_TEXT, DONATION_URL) in linked_pairs("Feedback and support", "Find Vassalization Extended elsewhere"))
+        heading = "### " + DONATION_LINE if markup == "markdown" else (
+            f"[h1][url={DONATION_URL}]{DONATION_TEXT}[/url][/h1]" if platform == "steam"
+            else f"[size=5][b][url={DONATION_URL}]{DONATION_TEXT}[/url][/b][/size]"
+        )
+        check("support_prominent_linked_heading", heading in text.splitlines())
     catalog = section("My mods", "Credits")
     check("populated_my_mods", all(any(name in line and url in line and " — " in line and line.rsplit(" — ", 1)[-1].strip() for line in catalog.splitlines()) for name, url in RELATED_MODS.items()))
     if markup != "plain":
@@ -166,6 +171,37 @@ def visible_words(text: str, is_bbcode: bool = False) -> list[str]:
         text = unformat_bbcode(text)
     text = re.sub(r"(?m)^(?:[-*]\s+|\d+\.\s+)", "", text)
     return text.split()
+
+
+def paradox_rich_html(source: str) -> str:
+    """Preserve the existing paragraph layout and promote only the support CTA."""
+    out = []
+    for line in flatten_tables(source).splitlines():
+        support_heading = line == "### " + DONATION_LINE
+        line = re.sub(r"^#{1,6}\s+", "", line).replace("**", "").replace("`", "")
+        line = html.escape(line)
+        line = LINK.sub(lambda m: f'<a href="{m[2]}">{m[1]}</a>', line)
+        tag = "h3" if support_heading else "p"
+        out.append(f"<{tag}>{line}</{tag}>")
+    return "".join(out) + "\n"
+
+
+def validate_paradox_rich_html(source: str, output: str) -> list[dict]:
+    """Check the linked h3, every destination and faithful visible content."""
+    linked_heading = f'<h3><a href="{DONATION_URL}">{DONATION_TEXT}</a></h3>'
+    checks = [
+        {"name": "paradox_rich: support_prominent_linked_heading", "passed": output.count(linked_heading) == 1},
+        {"name": "paradox_rich: all_canonical_link_pairs", "passed": LINK.findall(source) == [(html.unescape(label), html.unescape(url)) for url, label in re.findall(r'<a href="([^"\n]+)">([^<]+)</a>', output)]},
+        {"name": "paradox_rich: under_10000_utf16_units", "passed": len(output.encode("utf-16-le")) // 2 < 10000},
+    ]
+    projection = re.sub(r'<a href="([^"\n]+)">([^<]+)</a>', lambda m: f"{m[2]}: {m[1]}", output)
+    projection = html.unescape(re.sub(r"</?(?:p|h3)>", "\n", projection))
+    checks.append({"name": "paradox_rich: faithful_visible_content", "passed": visible_words(projection) == visible_words(plain(source))})
+    for check in checks:
+        if not check["passed"]:
+            raise ValueError("Publication validation failed: " + check["name"])
+    checks.extend(validate_support_and_catalog(projection, "paradox_rich", "plain"))
+    return checks
 
 
 def validate(source: str, outputs: dict[str, str]) -> list[dict]:
@@ -453,7 +489,8 @@ def main() -> None:
         if not all(f"vas_{args.candidate}_{suffix}" in guides["TESTING-AND-SCREENSHOTS.ru.txt"] for suffix in ("after_load", "after_succession")):
             raise ValueError("Testing guide has incorrect candidate save names")
         checks.append({"name": "test_guide_candidate_save_names", "passed": True})
-    extras = {}
+    extras = {"description-paradox.html": paradox_rich_html(source)}
+    checks.extend(validate_paradox_rich_html(source, extras["description-paradox.html"]))
     gallery_records = []
     if args.candidate == "release":
         from render_readme import GALLERY, render_readme
@@ -506,6 +543,7 @@ def main() -> None:
         ],
         "provenance_note": "Promotional cover is AI-generated; authentic gameplay screenshots must be identified separately.",
         "nexus_support_profile": "The approved Ko-fi CTA and URL are preserved, matching the other platforms; no support paragraph is omitted or reworded.",
+        "support_presentation": "Prominent linked heading: Markdown ###; Steam h1; Nexus size=5 bold; Paradox rich HTML h3. Plain Paradox text is a fallback and does not encode size or clickable anchors.",
         "external_publication_performed": False,
     }
     if args.candidate != "release":
@@ -523,7 +561,7 @@ def main() -> None:
         "outputs": output_records,
         "guides": guide_records,
         "canonical_source_unchanged": source_path.read_bytes() == source_bytes,
-        "profile_limits_source": "Project publication contract 1.3.1; no live platform form queried by this renderer.",
+        "profile_limits_source": "Project publication contract 1.3.2; no live platform form queried by this renderer.",
     }
     for name, data in (("metadata.json", metadata), ("text-render-verification.json", report)):
         (args.output_dir / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
