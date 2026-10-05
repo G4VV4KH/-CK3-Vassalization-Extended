@@ -216,28 +216,84 @@ def visible_words(text: str, is_bbcode: bool = False) -> list[str]:
 
 
 def paradox_rich_html(source: str) -> str:
-    """Preserve the existing paragraph layout and promote only the support CTA."""
-    out = []
+    """Render the family's small Markdown dialect as native rich-editor HTML.
+
+    Match the shared publication renderer: h3 headings, semantic lists and
+    escaped inline links/emphasis. Raw authored HTML remains literal text.
+    """
+    def inline(value: str) -> str:
+        escaped = html.escape(value)
+        escaped = LINK.sub(lambda m: f'<a href="{m[2]}">{m[1]}</a>', escaped)
+        escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
+        return re.sub(r"`([^`]+)`", r"<strong>\1</strong>", escaped)
+
+    out, paragraph, listing = [], [], None
+
+    def flush() -> None:
+        if paragraph:
+            out.append("<p>" + "<br>".join(paragraph) + "</p>")
+            paragraph.clear()
+
+    def close_list() -> None:
+        nonlocal listing
+        if listing:
+            out.append(f"</{listing}>")
+            listing = None
+
     for line in flatten_tables(source).splitlines():
-        support_heading = line == "### " + DONATION_LINE
-        line = re.sub(r"^#{1,6}\s+", "", line).replace("**", "").replace("`", "")
-        line = html.escape(line)
-        line = LINK.sub(lambda m: f'<a href="{m[2]}">{m[1]}</a>', line)
-        tag = "h3" if support_heading else "p"
-        out.append(f"<{tag}>{line}</{tag}>")
+        heading = re.match(r"^#{1,6}\s+(.+)", line)
+        item = re.match(r"^(?:([-*])\s+|\d+\.\s+)(.*)", line)
+        if heading:
+            flush()
+            close_list()
+            out.append("<h3>" + inline(heading[1]) + "</h3>")
+        elif item:
+            flush()
+            kind = "ul" if item[1] else "ol"
+            if kind != listing:
+                close_list()
+                out.append(f"<{kind}>")
+                listing = kind
+            out.append("<li>" + inline(item[2]) + "</li>")
+        else:
+            close_list()
+            if line.strip():
+                paragraph.append(inline(line))
+            else:
+                flush()
+    flush()
+    close_list()
     return "".join(out) + "\n"
 
 
 def validate_paradox_rich_html(source: str, output: str) -> list[dict]:
-    """Check the linked h3, every destination and faithful visible content."""
+    """Check heading/list semantics, every link and faithful visible content."""
     linked_heading = f'<h3><a href="{DONATION_URL}">{DONATION_TEXT}</a></h3>'
+    expected_headings = [plain(line).strip() for line in flatten_tables(source).splitlines() if re.match(r"^#{1,6}\s+", line)]
+    expected_lists, expected_items, current_list = [], 0, None
+    for line in flatten_tables(source).splitlines():
+        item = re.match(r"^(?:([-*])\s+|\d+\.\s+)(.*)", line)
+        kind = ("ul" if item[1] else "ol") if item else None
+        if kind:
+            expected_items += 1
+            if kind != current_list:
+                expected_lists.append(kind)
+        current_list = kind
+
+    def visible(fragment: str) -> str:
+        fragment = re.sub(r'<a href="([^"\n]+)">([^<]+)</a>', lambda m: f"{m[2]}: {m[1]}", fragment)
+        fragment = re.sub(r"</?strong>", "", fragment)
+        return html.unescape(re.sub(r"</?(?:p|h3|ul|ol|li)>|<br>", "\n", fragment))
+
     checks = [
         {"name": "paradox_rich: support_prominent_linked_heading", "passed": output.count(linked_heading) == 1},
+        {"name": "paradox_rich: semantic_section_headings", "passed": [visible(part).strip() for part in re.findall(r"<h3>(.*?)</h3>", output)] == expected_headings},
+        {"name": "paradox_rich: semantic_list_groups", "passed": re.findall(r"<(ul|ol)>", output) == expected_lists and re.findall(r"</(ul|ol)>", output) == expected_lists},
+        {"name": "paradox_rich: semantic_list_items", "passed": output.count("<li>") == output.count("</li>") == expected_items},
         {"name": "paradox_rich: all_canonical_link_pairs", "passed": LINK.findall(source) == [(html.unescape(label), html.unescape(url)) for url, label in re.findall(r'<a href="([^"\n]+)">([^<]+)</a>', output)]},
         {"name": "paradox_rich: under_10000_utf16_units", "passed": len(output.encode("utf-16-le")) // 2 < 10000},
     ]
-    projection = re.sub(r'<a href="([^"\n]+)">([^<]+)</a>', lambda m: f"{m[2]}: {m[1]}", output)
-    projection = html.unescape(re.sub(r"</?(?:p|h3)>", "\n", projection))
+    projection = visible(output)
     checks.append({"name": "paradox_rich: faithful_visible_content", "passed": visible_words(projection) == visible_words(plain(source))})
     for check in checks:
         if not check["passed"]:
@@ -633,7 +689,7 @@ def main() -> None:
         "outputs": output_records,
         "guides": guide_records,
         "canonical_source_unchanged": source_path.read_bytes() == source_bytes,
-        "profile_limits_source": "Project publication contract 1.3.2; no live platform form queried by this renderer.",
+        "profile_limits_source": "Project publication contract 1.4.0; no live platform form queried by this renderer.",
     }
     for name, data in (("metadata.json", metadata), ("text-render-verification.json", report)):
         (args.output_dir / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

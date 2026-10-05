@@ -23,6 +23,41 @@ def hashes(root):
             for p in root.rglob("*") if p.is_file()}
 
 
+class ParadoxRichTextTests(unittest.TestCase):
+    def setUp(self):
+        self.source = (ROOT / "publishing/description.en.md").read_text(encoding="utf-8")
+
+    def test_real_copy_preserves_native_headings_lists_links_and_visible_content(self):
+        output = renderer.paradox_rich_html(self.source)
+        checks = renderer.validate_paradox_rich_html(self.source, output)
+        self.assertTrue(all(check["passed"] for check in checks))
+        self.assertIn("<h3>At a glance</h3><ul><li>", output)
+        self.assertIn("<h3>Getting started</h3><ol><li>", output)
+        self.assertIn("<h3>My mods</h3><ul><li><a href=", output)
+        self.assertIn("<strong>Version 0.2.1</strong>", output)
+        with self.assertRaisesRegex(ValueError, "semantic_section_headings"):
+            renderer.validate_paradox_rich_html(self.source, output.replace("<h3>At a glance</h3>", "<p>At a glance</p>"))
+        with self.assertRaisesRegex(ValueError, "semantic_list_groups"):
+            renderer.validate_paradox_rich_html(self.source, output.replace("<ol>", "<p>").replace("</ol>", "</p>"))
+
+    def test_raw_html_and_link_attributes_are_escaped(self):
+        output = renderer.paradox_rich_html('## Safe <script>\n\n- [A & B](https://example.com/?a=1&b=2)\n\nA <tag> and `code`.\n')
+        self.assertNotIn("<script>", output)
+        self.assertNotIn("<tag>", output)
+        self.assertIn("<h3>Safe &lt;script&gt;</h3>", output)
+        self.assertIn('<a href="https://example.com/?a=1&amp;b=2">A &amp; B</a>', output)
+        self.assertIn("<strong>code</strong>", output)
+
+    def test_actual_rich_html_limit_counts_astral_characters_as_utf16_pairs(self):
+        base_units = len(renderer.paradox_rich_html(self.source).encode("utf-16-le")) // 2
+        source = self.source + "\n" + "💛" * ((10000 - base_units) // 2 + 1) + "\n"
+        output = renderer.paradox_rich_html(source)
+        self.assertLess(len(output), 10000)
+        self.assertGreaterEqual(len(output.encode("utf-16-le")) // 2, 10000)
+        with self.assertRaisesRegex(ValueError, "under_10000_utf16_units"):
+            renderer.validate_paradox_rich_html(source, output)
+
+
 class MetadataRevisionTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
