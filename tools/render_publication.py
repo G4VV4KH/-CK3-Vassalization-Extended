@@ -1,10 +1,12 @@
 """Render this mod's canonical copy without touching runtime or sibling mods.
 
-Usage: python tools/render_publication.py --output-dir /path/to/staging --build-id ID [--candidate rc2|release] [--launcher-wrapper NAME.mod]
+Usage: python tools/render_publication.py --output-dir /path/to/staging --build-id ID [--candidate rc2|release] [--launcher-wrapper NAME.mod] [--metadata-revision FILE]
 The output directory is explicit; the canonical input is relative to this script.
 Platform size checks use the project's current publishing profile, not a live form.
 Candidate defaults to rc1. INSTALL and testing guides are generated with its identity.
 The release profile emits public installation instructions and a gallery README.
+For an existing release's metadata-only update, pass its reviewed metadata revision
+JSON. Assigned platform/file IDs are required and validated before any output write.
 """
 
 from __future__ import annotations
@@ -15,7 +17,7 @@ import html
 import json
 from pathlib import Path
 import re
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +50,46 @@ def platform_urls(source: str) -> dict[str, str]:
             if platform:
                 result[platform] = url
     return result
+
+
+def load_metadata_revision(path: Path | None, source: str, candidate: str, build_id: str) -> dict | None:
+    """Accept an explicit reviewed existing-release identity, never infer IDs."""
+    if path is None:
+        return None
+    data = json.loads(path.read_text(encoding="utf-8-sig"))
+    version_match = re.search(r"\*\*Version ([0-9]+\.[0-9]+\.[0-9]+)\*\*", source)
+    version = version_match[1] if version_match else None
+    expected = {
+        "kind": "PUBLICATION_METADATA_REVISION", "mod": "vassalization_extended", "public_title": TITLE,
+        "version": version, "game_target": GAME_TARGET, "frozen_build_id": build_id,
+        "nexus_file_version": version, "nexus_file_description": f"For CK3 {GAME_TARGET}",
+        "canonical_sha256": sha256(source.encode("utf-8")),
+        "runtime_changed": False, "game_payload_changed": False,
+        "archives_rebuilt": False, "mod_version_changed": False,
+    }
+    if candidate != "release" or version is None:
+        raise ValueError("Metadata revisions require the release profile and a canonical mod version")
+    for key, value in expected.items():
+        if data.get(key) != value:
+            raise ValueError(f"Metadata revision has a mismatched {key}")
+    if not isinstance(data.get("metadata_revision"), str) or not data["metadata_revision"].strip():
+        raise ValueError("Metadata revision identifier is required")
+    if not re.fullmatch(r"[1-9][0-9]*", str(data.get("nexus_file_id", ""))):
+        raise ValueError("Metadata revision requires the existing Nexus file ID")
+    urls = platform_urls(source)
+    if set(urls) != {"steam", "paradox", "nexus", "github"} or data.get("platform_urls") != urls:
+        raise ValueError("Metadata revision platform URLs must match the assigned canonical destinations")
+    ids = data.get("platform_ids", {})
+    assigned = {
+        "steam": parse_qs(urlparse(urls["steam"]).query).get("id", [None])[0],
+        "paradox": re.search(r"/mods/([0-9]+)(?:/|$)", urlparse(urls["paradox"]).path),
+        "nexus": re.search(r"/mods/([0-9]+)(?:/|$)", urlparse(urls["nexus"]).path),
+    }
+    for key, observed in assigned.items():
+        assigned_id = observed[1] if isinstance(observed, re.Match) else observed
+        if not re.fullmatch(r"[1-9][0-9]*", str(ids.get(key, ""))) or str(ids[key]) != assigned_id:
+            raise ValueError(f"Metadata revision requires the assigned {key} platform ID")
+    return data
 
 
 def platform_source(source: str, platform: str) -> str:
@@ -458,6 +500,7 @@ def main() -> None:
     parser.add_argument("--build-id", required=True)
     parser.add_argument("--candidate", choices=("rc1", "rc2", "release"), default="rc1")
     parser.add_argument("--launcher-wrapper", help="Existing or planned local .mod basename; default derives from version and candidate.")
+    parser.add_argument("--metadata-revision", type=Path, help="Reviewed JSON identity for a metadata-only update of an existing published release.")
     args = parser.parse_args()
     wrapper = args.launcher_wrapper or ("vassalization_extended.mod" if args.candidate == "release" else f"game_vassalization_extended_0_2_1_{args.candidate}.mod")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*\.mod", wrapper):
@@ -465,6 +508,7 @@ def main() -> None:
     source_path = ROOT / "publishing/description.en.md"
     source_bytes = source_path.read_bytes()
     source = source_bytes.decode("utf-8-sig")
+    metadata_revision = load_metadata_revision(args.metadata_revision, source, args.candidate, args.build_id)
     outputs = {
         "description-steam.bbcode.txt": bbcode(source, "steam"),
         "description-paradox.txt": plain(source),
@@ -472,6 +516,19 @@ def main() -> None:
     }
     checks = validate(source, outputs)
     guides = render_guides(args.candidate, args.build_id, wrapper)
+    if metadata_revision:
+        guides["METADATA-UPDATE.txt"] = (
+            f"{TITLE} {metadata_revision['version']} — metadata-only update\n"
+            f"Revision: {metadata_revision['metadata_revision']}\n"
+            "Status: PREPARED_EXTERNAL_VERIFICATION_PENDING\n"
+            f"Nexus File ID: {metadata_revision['nexus_file_id']}\n"
+            f"Nexus File version: {metadata_revision['nexus_file_version']}\n"
+            f"Nexus Description: {metadata_revision['nexus_file_description']}\n"
+            "Preserve the existing game archives and their file IDs. No archive upload or mod-version change is part of this revision.\n"
+            "Verify the public description, linked support heading and related mods; separately verify the current Nexus Files entry after saving.\n"
+            + "\n".join(f"{platform}: {url}" for platform, url in metadata_revision["platform_urls"].items()) + "\n"
+        )
+        checks.append({"name": "existing_release_metadata_identity", "passed": True})
     for name, guide in guides.items():
         valid = not re.search(r"\{(?:candidate|candidate_label|local_wrapper|build_id)\}", guide)
         if args.candidate != "release":
@@ -530,9 +587,9 @@ def main() -> None:
         "additional_dlc_requirement": None,
         "dlc_note": "Vanilla unlock routes retain their own DLC requirements.",
         "contact_email": "g4vv4kh@gmail.com",
-        "publication_status": "NOT_PUBLISHED",
+        "publication_status": "PREPARED_EXTERNAL_VERIFICATION_PENDING" if metadata_revision else "NOT_PUBLISHED",
         "text_status": "PREPARED_FROM_CANONICAL_SOURCE",
-        "platform_ids": {},
+        "platform_ids": dict(metadata_revision["platform_ids"]) if metadata_revision else {},
         "platform_urls": platform_urls(source),
         "canonical_description": source_record,
         "rendered_outputs": output_records,
@@ -547,6 +604,20 @@ def main() -> None:
         "support_presentation": "Prominent linked heading: Markdown ###; Steam h1; Nexus size=5 bold; Paradox rich HTML h3. Plain Paradox text is a fallback and does not encode size or clickable anchors.",
         "external_publication_performed": False,
     }
+    if metadata_revision:
+        metadata.update({
+            "metadata_only": True,
+            "metadata_revision": metadata_revision["metadata_revision"],
+            "nexus_file_id": str(metadata_revision["nexus_file_id"]),
+            "metadata_revision_input": {"file": args.metadata_revision.name, "sha256": sha256(args.metadata_revision.read_bytes())},
+            "runtime_changed": False, "game_payload_changed": False,
+            "archives_rebuilt": False, "mod_version_changed": False,
+            "before_external_publication": [
+                "Preserve current assigned platform IDs, Nexus file ID, mod version and delivered archives.",
+                "Verify descriptions, enlarged linked support heading and related-mod links on each public destination.",
+                "Verify the existing Nexus Files entry retains its file ID and version and displays the approved CK3 target.",
+            ],
+        })
     if args.candidate != "release":
         metadata["pending_rc_checks"] = ["Actual save reload", "Succession", "Post-playtest group-header contrast", "Authentic gameplay gallery captures"]
     else:

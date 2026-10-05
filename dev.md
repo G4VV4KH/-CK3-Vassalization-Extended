@@ -102,6 +102,19 @@ project profile and do not replace reviewing the actual platform form.
 When reusing an existing local launcher entry, pass `--launcher-wrapper` with
 that wrapper's filename. Rendering guides does not change launcher settings.
 
+For an existing release's metadata-only update, add
+`--metadata-revision "<reviewed metadata revision JSON>"` to the release command.
+Resolve that current input through the release registry. It supplies the existing
+platform URLs/IDs, Nexus file ID, mod version, CK3 target and canonical hash;
+missing or mismatched identity is rejected before writing. Generated metadata
+uses `PREPARED_EXTERNAL_VERIFICATION_PENDING`; it does not certify a saved page
+or delivered archive. Preserve the existing game archives. Run
+`python -B tools/test_render_publication_metadata.py` for the identity gates,
+deterministic generation and source-write boundary checks. Without an explicit
+existing-release input, the renderer retains the new-release `NOT_PUBLISHED`
+state. Candidate mode defaults to `rc1`, so specify `--candidate release` for
+public copy.
+
 `tools/export_media.ps1` is an optional **Windows PowerShell/System.Drawing**
 utility. Supply `-SquareSource`, `-WideSource` and a new `-OutputDirectory`. It
 fits the entire supplied artwork into the 1024×1024 cover, 512×512 thumbnail and

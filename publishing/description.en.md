@@ -2,7 +2,7 @@
 
 ## At a glance
 
-- 🟢 **Version 0.2.1** · Targets CK3 **1.20**.
+- 🟢 **Version 0.2.1** · Targets CK3 **1.20.0.3**.
 - 🟢 **Standalone:** no additional mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
@@ -82,12 +82,12 @@ Include the CK3 version, mod list and load order, attacker and defender ranks, t
 
 ## My mods
 
-- [Parley: The Negotiating Table](https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081) — negotiate diplomatic agreements.
-- [Marriage Calculation Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163) — compare and sort marriage candidates by score.
+- [Parley: The Negotiating Table](https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081) — negotiate complete diplomatic agreements.
+- [Marriage Calculation Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163) — compare marriage candidates with readable scores and sorting.
 - [Your Own Hegemony](https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582) — unite imperial crowns under a new hegemony.
 
-These mods are optional. AGOT: Marriage Calculation Assistant remains on hold for CK3 1.20.
+These mods are optional. [AGOT: Marriage Calculation Assistant](https://github.com/G4VV4KH/-CK3-AGOT-Marriage-Calculation-Assistant) remains on hold for CK3 1.20.
 
 ## Credits
 
-The promotional cover is AI-generated artwork depicting Valdemar of Denmark paying homage to Frederick Barbarossa, inspired by their in-game appearances. It is an illustration, not a gameplay screenshot. The gallery images are captures from Crusader Kings III.
+The promotional cover is AI-generated artwork. Gallery images are authentic Crusader Kings III screenshots.
