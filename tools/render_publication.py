@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 BB_TAG = re.compile(r"\[/?(?:h[1-6]|b|size(?:=\d+)?|list(?:=1)?|olist)\]|\[\*\]")
 TITLE = "Vassalization Extended"
-GAME_TARGET = "1.20.0.3"
+GAME_TARGET = "1.20.0.4"
 DONATION_TEXT = "Want to support my work? Donate on Ko-fi 💛"
 DONATION_URL = "https://ko-fi.com/g4vv4kh"
 DONATION_LINE = f"[{DONATION_TEXT}]({DONATION_URL})"
