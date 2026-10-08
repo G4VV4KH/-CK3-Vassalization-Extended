@@ -222,3 +222,7 @@ No converter or extra game run was used to turn that limitation into a claim.
 The gallery preserves the four user captures through JPEG compression only;
 its captions explicitly identify previews. Background log diagnostics remain,
 so no whole-log-clean claim accompanies publication preparation.
+
+## CAA family metadata revision
+
+The current publication copy includes all seven other maintained mods, with Steam Workshop links. Update only the canonical My other mods block and project that block into the existing README and platform outputs; preserve the rest of each platform description. Parley and Vassalization Extended Steam exports use whitespace-only BBCode compaction to remain within the 8,000-byte UTF-8 CRLF form limit. Recheck the current shared publication contract and scoped release metadata guide before publishing. Runtime, version, archives, media, and prior localization evidence are unchanged.
