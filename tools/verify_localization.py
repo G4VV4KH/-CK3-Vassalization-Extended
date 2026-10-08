@@ -46,13 +46,16 @@ def verify(root=ROOT, game_root=None):
         assert installed == set(LANGUAGES), f'Installed CK3 language coverage changed: {installed}'
     languages = {language: read_language(root, language) for language in LANGUAGES}
     english = languages['english']
+    scope_signatures = json.loads((ROOT / 'tools/localization/scope-signatures.json').read_text(encoding='utf-8'))['per_language']
+    assert set(scope_signatures) == set(LANGUAGES), 'Reviewed scope signature language inventory differs'
+    assert all(set(scope_signatures[l]) == set(languages[l]) for l in LANGUAGES), 'Reviewed scope signature key inventory differs'
     details = []
     for language, values in languages.items():
         assert values.keys() == english.keys(), f'{language}: key coverage differs'
         for key, text in values.items():
             reference = english[key]
             assert Counter(REF.findall(text)) == Counter(REF.findall(reference)), f'{language}/{key}: localization references changed'
-            assert Counter(SCOPED.findall(text)) == Counter(SCOPED.findall(reference)), f'{language}/{key}: character substitutions changed'
+            assert Counter(re.findall(r'\[[^\]]+\]', text)) == Counter(scope_signatures[language][key]), f'{language}/{key}: reviewed locale expression signatures changed'
             for ref in REF.findall(text):
                 assert ref in values or ref in {'VASSALIZATION_WAR_NAME', 'VASSALIZATION_WAR_NAME_BASE'}, f'{language}/{key}: unresolved reference {ref}'
             # Decimal punctuation may be localized; numeric meaning must survive.

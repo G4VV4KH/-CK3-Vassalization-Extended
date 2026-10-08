@@ -33,6 +33,8 @@ RELATED_MODS = {
     "Marriage Calculation Assistant": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163",
     "Your Own Hegemony": "https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582",
     "Court Automation": "https://steamcommunity.com/sharedfiles/filedetails/?id=3814028714",
+    "Nomad Autorefill": "https://steamcommunity.com/sharedfiles/filedetails/?id=3814793283",
+    "Tax Collection Automation": "https://steamcommunity.com/sharedfiles/filedetails/?id=3815381275"
 }
 
 
@@ -334,7 +336,7 @@ def validate(source: str, outputs: dict[str, str]) -> list[dict]:
     return checks
 
 
-INSTALL_TEMPLATE = """Vassalization Extended 0.2.1 — manual installation
+INSTALL_TEMPLATE = """Vassalization Extended 0.2.2 — manual installation
 Release candidate: {build_id}
 Targets Crusader Kings III 1.20. No additional mod is required.
 Vanilla routes to unlock Forced Vassalization retain their own requirements.
@@ -398,7 +400,7 @@ This is a prepared release candidate, not a published store download.
 Contact: g4vv4kh@gmail.com
 """
 
-RELEASE_INSTALL = """Vassalization Extended 0.2.1 — manual installation
+RELEASE_INSTALL = """Vassalization Extended 0.2.2 — manual installation
 For Crusader Kings III 1.20
 
 Installation
@@ -446,9 +448,9 @@ Removing it or downgrading during such a campaign is unsupported.
 Contact: g4vv4kh@gmail.com
 """
 
-TESTING_TEMPLATE = """Vassalization Extended 0.2.1 — проверка {candidate_label} и скриншоты
+TESTING_TEMPLATE = """Vassalization Extended 0.2.2 — проверка {candidate_label} и скриншоты
 Сборка: {build_id}
-Игра: CK3 1.20.0.3
+Игра: CK3 1.20.0.4
 
 Это план следующих проверок. Фактическая перезагрузка сохранения, наследование,
 новый контраст заголовка и галерея скриншотов {candidate_label} пока не подтверждены.
@@ -564,7 +566,7 @@ def main() -> None:
     parser.add_argument("--launcher-wrapper", help="Existing or planned local .mod basename; default derives from version and candidate.")
     parser.add_argument("--metadata-revision", type=Path, help="Reviewed JSON identity for a metadata-only update of an existing published release.")
     args = parser.parse_args()
-    wrapper = args.launcher_wrapper or ("vassalization_extended.mod" if args.candidate == "release" else f"game_vassalization_extended_0_2_1_{args.candidate}.mod")
+    wrapper = args.launcher_wrapper or ("vassalization_extended.mod" if args.candidate == "release" else f"game_vassalization_extended_0_2_2_{args.candidate}.mod")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*\.mod", wrapper):
         parser.error("--launcher-wrapper must be a .mod basename")
     source_path = ROOT / "publishing/description.en.md"
@@ -634,13 +636,13 @@ def main() -> None:
     metadata = {
         "public_title": TITLE,
         "short_description": "Remove the Forced Vassalization county limit and choose low, normal, high or religious peace terms before declaring war.",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "candidate": args.candidate.upper(),
         "build_id": args.build_id,
         "local_launcher_wrapper": wrapper,
         "supported_version": "1.20.*",
         "compatibility_target": GAME_TARGET,
-        "nexus_file_version": "0.2.1",
+        "nexus_file_version": "0.2.2",
         "nexus_file_description": f"For CK3 {GAME_TARGET}",
         "description_language": "English",
         "game_localization_languages": ["English", "French", "German", "Japanese", "Korean", "Polish", "Russian", "Simplified Chinese", "Spanish"],

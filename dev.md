@@ -1,12 +1,19 @@
 # Vassalization Extended development
 
-This is the portable source projection for **Vassalization Extended 0.2.1**,
-targeting CK3 **1.20.0.3**. This update adds French, German, Japanese, Korean,
-Polish, Simplified Chinese and Spanish to the existing English and Russian.
-Gameplay scripts, GUI, thumbnail and existing English/Russian localization are
-byte-identical to published 0.2.0. The runtime changes are fourteen additional
-localization YAML files and the descriptor version. Preparing this source is
-distinct from verifying a public repository or store download.
+This portable source projection is **Vassalization Extended 0.2.2**, targeting
+CK3 **1.20.0.4**. It corrects player/other-character grammar in 52 localization
+values across English, French, German, Polish, Russian, Simplified Chinese and
+Spanish. The descriptor version is updated; gameplay, GUI and media match the
+published 0.2.1 payload.
+
+The source-bound localization audit covers all 432 authored values in nine CK3
+languages: 396 player-visible key/language cells have native resolution evidence,
+and 36 internal war-name aliases have explicit source/semantic dispositions.
+Native provider checks include both player roles where person/case branches
+changed. Unchanged keys/provider bytes inherit their precise prior evidence;
+this is not a new whole-gameplay or visual-layout certification. Original failed
+fixtures are retained separately. Final independent release approval and store
+delivery are recorded by the release workspace, not inferred from this README.
 
 ## Source layout
 
@@ -21,7 +28,9 @@ distinct from verifying a public repository or store download.
   `build_localization.py` generate the reviewed CB, group and localization files.
 - `tools/localization/` contains the nine editable JSON translation sources;
   `tools/verify_localization.py` independently checks all eighteen runtime language
-  files, substitution tokens, numeric mechanics and missing translations.
+  files, reviewed per-language expression signatures, numeric mechanics and missing translations.
+  `scope-signatures.json` pins legitimate locale-specific role/case substitutions;
+  update it only alongside semantic and native localization review.
 - `tools/verify_profiles.py` performs the current independent static checks.
   `verify_source.py` provides its shared parser and forwards command-line calls
   to the current verifier; its retained historical check function is not the
@@ -92,7 +101,7 @@ After editing the canonical player description:
 
 ```text
 python -B tools/render_readme.py
-python -B tools/render_publication.py --output-dir "<new staging directory>" --build-id "2026-10-05-vassalization-extended-0.2.1-release" --candidate release
+python -B tools/render_publication.py --output-dir "<new staging directory>" --build-id "2026-10-08-vassalization-extended-0.2.2-localization" --candidate release
 ```
 
 The publication renderer works only on this mod, preserves the canonical
@@ -123,7 +132,7 @@ directory. The supplied promotional artwork is AI-generated; it is distinct
 from authentic gameplay screenshots. Portable provenance and the landscape
 generation brief are in `publishing/media/`.
 
-## Localization update 0.2.1
+## Historical localization update 0.2.1
 
 All nine languages use the same localization keys and retain the same character
 substitutions, cross-references, numeric rates and perk lookup. The generator
@@ -177,27 +186,32 @@ and source-export checks do not close these gameplay or visual gaps.
 
 ## Publication build
 
-`tools/build_publication_pack.py` prepares a localization-only update from an
-explicitly supplied published 0.2.0 kit/runtime and reviewed 0.2.1 text/source
-staging. Supply an output root, the unchanged approved Paradox JPEG and a mutable
-journal path. The builder never starts CK3, changes a launcher, updates a registry
-or publishes externally. Existing GAME and deploy directories cannot be replaced.
+`tools/build_publication_pack.py` assembles the reviewed 0.2.2 candidate from
+explicit source, runtime-manifest, text, media and projection-lock paths. Start
+with `--preflight`; `--build` additionally requires the complete localization
+report and an independent acceptance record bound to its exact report/scope
+hashes. All nine languages must be complete. This builder cannot grant approval.
 
-The clean payload contains 27 files: the original thirteen with a version-only
-descriptor change, plus fourteen new translation YAML files. The builder pins the
-published baseline and rejects any change to gameplay, GUI, thumbnail or existing
-English/Russian localization. The 60-file portable source includes nine JSON
-translation sources and the independent language verifier. Assigned platform IDs
-are retained; only the Steam descriptor receives `remote_file_id`. Portable manual
-wrappers and other platform descriptors remain free of that field. The Paradox
-ZIP contains the clean runtime at its root; Nexus includes a mod directory, sibling
-wrapper and installation instructions.
+The clean payload has 27 files. Gameplay, GUI and assets are unchanged from
+published 0.2.1. Seven language files contain 52 grammar/ownership fixes; the
+descriptor changes version. Translation JSON sources regenerate those exact
+YAML bytes. The verifier checks reviewed per-language expressions as well as
+key parity, references, numbers and native concept lookups.
 
-`--verify-only` checks both the existing 0.2.0 kit and new 0.2.1 kits, including
-source links, input locks, source/runtime identity, platform overlays, archive
-members, CRCs and payload hashes. Mutable evidence and publication progress remain
-outside immutable packs. Packaging success does not mean the update was uploaded
-or downloaded from a public platform.
+Supply `--source-root`, `--runtime-manifest`, `--text-root`, `--images-root`,
+`--projection-lock`, `--complete-gate` and a fresh `--output-dir`. The builder
+never starts CK3, changes a launcher or registry, writes a live journal, or
+publishes externally. Existing output directories cannot be replaced.
+
+Only the Steam descriptor receives the existing `remote_file_id`. The Paradox
+ZIP has the clean runtime at its root; Nexus has a mod directory, sibling
+wrapper and installation guide. Published square/16:9 covers and the four real
+screenshots are preserved. `--verify <pack>` rechecks the fixed output inventory,
+container/member hashes and CRCs. A built pack does not prove that public
+platforms received the update; upload, public-page and delivered-byte records
+remain separate.
+
+## Historical user-session evidence
 
 The final user-session review confirmed that the launcher used the frozen RC2
 runtime and recorded a Low Obligations war and normal in-game Quit. The user

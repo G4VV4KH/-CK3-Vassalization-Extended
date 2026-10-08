@@ -34,7 +34,8 @@ class ParadoxRichTextTests(unittest.TestCase):
         self.assertIn("<h3>At a glance</h3><ul><li>", output)
         self.assertIn("<h3>Getting started</h3><ol><li>", output)
         self.assertIn("<h3>My other mods</h3><ul><li><a href=", output)
-        self.assertIn("<strong>Version 0.2.1</strong>", output)
+        version = re.search(r"\*\*Version ([0-9.]+)\*\*", self.source)[1]
+        self.assertIn(f"<strong>Version {version}</strong>", output)
         with self.assertRaisesRegex(ValueError, "semantic_section_headings"):
             renderer.validate_paradox_rich_html(self.source, output.replace("<h3>At a glance</h3>", "<p>At a glance</p>"))
         with self.assertRaisesRegex(ValueError, "semantic_list_groups"):
@@ -82,7 +83,8 @@ class MetadataRevisionTests(unittest.TestCase):
             # or image editing are needed to exercise the write boundary.
             target.write_bytes(b"test gallery bytes")
         (self.source / "runtime-sentinel.txt").write_text("must not change")
-        source = (self.source / "publishing/description.en.md").read_text(encoding="utf-8")
+        # Canonical identity pins serialized bytes, including CRLF on Windows.
+        source = (self.source / "publishing/description.en.md").read_bytes().decode("utf-8")
         urls = renderer.platform_urls(source)
         version = re.search(r"\*\*Version ([0-9.]+)\*\*", source)[1]
         self.config = {

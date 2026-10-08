@@ -4,7 +4,7 @@
 
 ## At a glance
 
-- 🟢 **Version 0.2.1** · Targets CK3 **1.20.0.4**.
+- 🟢 **Version 0.2.2** · Targets CK3 **1.20.0.4**.
 - 🟢 **Standalone:** no other mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
@@ -15,13 +15,13 @@
 
 ## A kingdom can bend the knee
 
-Bring a neighboring ruler into your realm without an arbitrary ceiling on the number of counties they govern. Choose the obligations and religious rights that their submission will secure before you declare war.
+Bring a neighboring ruler into your realm without a county ceiling. Choose their obligations and religious rights before declaring war.
 
 ## Choose the terms of submission
 
-Removes the county-count eligibility check from the existing **Forced Vassalization** casus belli. There is no replacement numeric cap.
+Removes the county limit from the existing **Forced Vassalization** casus belli without replacing it.
 
-The target must still be an independent neighboring ruler of lower rank. You still need access to the casus belli through the vanilla perk or another qualifying vanilla route. Existing restrictions on declaring war remain in place.
+Targets must remain independent neighbors of lower rank. Access still requires the vanilla perk or another qualifying vanilla route; all other war restrictions remain.
 
 | Terms | Feudal taxes / levies, before modifiers | Prestige cost | Defeat reparations |
 | --- | --- | --- | --- |
@@ -89,6 +89,7 @@ Email: g4vv4kh@gmail.com
 - [Your Own Hegemony](https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582) — found a custom hegemony.
 - [Court Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3814028714) — automate court positions and recruit courtiers or knights.
 - [Nomad Autorefill](https://steamcommunity.com/sharedfiles/filedetails/?id=3814793283) — automatically reinforce nomadic Men-at-Arms using herd or gold.
+- [Tax Collection Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815381275) — automatically assign tax collectors and optimize tax jurisdictions.
 
 These mods are optional.
 

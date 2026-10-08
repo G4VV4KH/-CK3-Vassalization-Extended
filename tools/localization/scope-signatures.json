@@ -1,0 +1,865 @@
+{
+  "schema": 1,
+  "version": "0.2.2",
+  "purpose": "Reviewed exact per-language expression signatures. Person/case forms legitimately differ across locales; updates require translation/native review.",
+  "per_language": {
+    "english": {
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'become', 'becomes')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'your', 'their')]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'become', 'becomes')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'your', 'their')]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'become', 'becomes')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'your', 'their')]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'become', 'becomes')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'your', 'their')]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'remain', 'remains')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pay', 'pays')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'suffer', 'suffers')]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'remain', 'remains')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pay', 'pays')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'suffer', 'suffers')]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'remain', 'remains')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pay', 'pays')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'suffer', 'suffers')]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'remain', 'remains')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pay', 'pays')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'suffer', 'suffers')]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": [],
+      "game_concept_vassalize_casus_belli_desc": [
+        "[casus_belli|E]",
+        "[vassalization|E]",
+        "[ruler|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]",
+        "[perk|E]"
+      ]
+    },
+    "french": {
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'devenez', 'devient')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez vos', 'conserve ses')]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'devenez', 'devient')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez vos', 'conserve ses')]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'devenez', 'devient')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez vos', 'conserve ses')]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'devenez', 'devient')]",
+        "[attacker.GetShortUIName]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez vos', 'conserve ses')]",
+        "[Select_CString(defender.IsLocalPlayer, 'bénéficiez', 'bénéficie')]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez votre', 'conserve son')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'payez', 'paie')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'subissez', 'subit')]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez votre', 'conserve son')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'payez', 'paie')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'subissez', 'subit')]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez votre', 'conserve son')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'payez', 'paie')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'subissez', 'subit')]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservez votre', 'conserve son')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'payez', 'paie')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'subissez', 'subit')]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": [],
+      "game_concept_vassalize_casus_belli_desc": [
+        "[casus_belli|E]",
+        "[vassalization|E]",
+        "[ruler|E]",
+        "[perk|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]"
+      ]
+    },
+    "german": {
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'werdet', 'wird')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Euch', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'behaltet', 'behält')]",
+        "[Select_CString(defender.IsLocalPlayer, 'erhaltet', 'erhält')]"
+      ],
+      "ve_default_victory_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'werdet', 'wird')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Euch', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'behaltet', 'behält')]"
+      ],
+      "ve_high_victory_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'werdet', 'wird')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Euch', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'behaltet', 'behält')]",
+        "[Select_CString(defender.IsLocalPlayer, 'erhaltet', 'erhält')]"
+      ],
+      "ve_religious_victory_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'werdet', 'wird')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Euch', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'behaltet', 'behält')]",
+        "[Select_CString(defender.IsLocalPlayer, 'erhaltet', 'erhält')]"
+      ],
+      "ve_low_defeat_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Ihr', attacker.GetShortUIName)|U]"
+      ],
+      "ve_default_defeat_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Ihr', attacker.GetShortUIName)|U]"
+      ],
+      "ve_high_defeat_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Ihr', attacker.GetShortUIName)|U]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[Select_CString(defender.IsLocalPlayer, 'Ihr', defender.GetShortUIName)|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'Ihr', attacker.GetShortUIName)|U]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": [],
+      "game_concept_vassalize_casus_belli_desc": [
+        "[casus_belli|E]",
+        "[vassalization|E]",
+        "[ruler|E]",
+        "[perk|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]"
+      ]
+    },
+    "japanese": {
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": [],
+      "game_concept_vassalize_casus_belli_desc": [
+        "[ruler|E]",
+        "[vassalization|E]",
+        "[casus_belli|E]",
+        "[perk|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]"
+      ]
+    },
+    "korean": {
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": [],
+      "game_concept_vassalize_casus_belli_desc": [
+        "[ruler|E]",
+        "[vassalization|E]",
+        "[casus_belli|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]",
+        "[perk|E]"
+      ]
+    },
+    "polish": {
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zostajesz', 'zostaje')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'twoim ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' postaci ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINameNotMe)]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zostajesz', 'zostaje')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'twoim ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' postaci ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINameNotMe)]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zostajesz', 'zostaje')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'twoim ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' postaci ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINameNotMe)]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zostajesz', 'zostaje')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'twoim ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' postaci ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINameNotMe)]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zachowujesz', 'zachowuje')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'płacisz', 'płaci')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ponosisz', 'ponosi')]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zachowujesz', 'zachowuje')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'płacisz', 'płaci')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ponosisz', 'ponosi')]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zachowujesz', 'zachowuje')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'płacisz', 'płaci')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ponosisz', 'ponosi')]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'zachowujesz', 'zachowuje')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'płacisz', 'płaci')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ponosisz', 'ponosi')]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": [],
+      "game_concept_vassalize_casus_belli_desc": [
+        "[casus_belli|E]",
+        "[vassalization|E]",
+        "[ruler|E]",
+        "[perk|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]"
+      ]
+    },
+    "russian": {
+      "game_concept_vassalize_casus_belli_desc": [
+        "[Concept('casus_belli', 'Казус белли')|E]",
+        "[Concept('vassalization', 'вассализации')|El]",
+        "[Concept('ruler', 'правителя')|El]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]"
+      ],
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[Concept('piety_level', 'уровень набожности')|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'становитесь', 'становится')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'вашим ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' персонажа ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINamePossessive)]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'становитесь', 'становится')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'вашим ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' персонажа ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINamePossessive)]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'становитесь', 'становится')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'вашим ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' персонажа ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINamePossessive)]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'становитесь', 'становится')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'вашим ', '')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', ' персонажа ')]",
+        "[Select_CString(attacker.IsLocalPlayer, '', attacker.GetShortUINamePossessive)]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'сохраняете', 'сохраняет')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'платите', 'платит')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'несёте', 'несёт')]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'сохраняете', 'сохраняет')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'платите', 'платит')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'несёте', 'несёт')]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'сохраняете', 'сохраняет')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'платите', 'платит')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'несёте', 'несёт')]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'сохраняете', 'сохраняет')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'платите', 'платит')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'несёте', 'несёт')]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": []
+    },
+    "simp_chinese": {
+      "game_concept_vassalize_casus_belli_desc": [
+        "[vassalization|E]",
+        "[ruler|E]",
+        "[casus_belli|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]",
+        "[perk|E]"
+      ],
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[attacker.GetShortUIName|U]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": []
+    },
+    "spanish": {
+      "game_concept_vassalize_casus_belli_desc": [
+        "[casus_belli|E]",
+        "[vassalization|E]",
+        "[ruler|E]",
+        "[perk|E]",
+        "[GetPerk( 'forced_vassalage_perk' ).GetName( GetNullCharacter )]"
+      ],
+      "ve_vassalization_group_name": [],
+      "ve_vassalization_group_desc": [],
+      "ve_refusal_risk_desc": [
+        "[piety_level|E]"
+      ],
+      "ve_religious_protection_available_tt": [],
+      "ve_contract_lock_desc": [],
+      "ve_protection_rights_desc": [],
+      "ve_low_cb_desc": [],
+      "ve_default_cb_desc": [],
+      "ve_high_cb_desc": [],
+      "ve_religious_cb_desc": [],
+      "ve_low_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'pasas', 'pasa')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ti', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tus', 'conserva sus')]"
+      ],
+      "ve_default_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'pasas', 'pasa')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ti', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tus', 'conserva sus')]"
+      ],
+      "ve_high_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'pasas', 'pasa')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ti', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tus', 'conserva sus')]"
+      ],
+      "ve_religious_victory_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'pasas', 'pasa')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'ti', attacker.GetShortUIName)]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tus', 'conserva sus')]",
+        "[Select_CString(defender.IsLocalPlayer, 'recibes', 'recibe')]"
+      ],
+      "ve_low_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tu', 'conserva su')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pagas', 'paga')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'sufres', 'sufre')]"
+      ],
+      "ve_default_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tu', 'conserva su')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pagas', 'paga')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'sufres', 'sufre')]"
+      ],
+      "ve_high_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tu', 'conserva su')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pagas', 'paga')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'sufres', 'sufre')]"
+      ],
+      "ve_religious_defeat_desc": [
+        "[defender.GetShortUIName|U]",
+        "[Select_CString(defender.IsLocalPlayer, 'conservas tu', 'conserva su')]",
+        "[attacker.GetShortUIName|U]",
+        "[Select_CString(attacker.IsLocalPlayer, 'pagas', 'paga')]",
+        "[Select_CString(attacker.IsLocalPlayer, 'sufres', 'sufre')]"
+      ],
+      "ve_default_cost_factor": [],
+      "ve_low_cost_factor": [],
+      "ve_high_cost_factor": [],
+      "ve_religious_cost_factor": [],
+      "ve_religious_protection": [],
+      "ve_religious_protection_none": [],
+      "ve_religious_protection_none_short": [],
+      "ve_religious_protection_none_desc": [],
+      "ve_religious_protection_protected": [],
+      "ve_religious_protection_protected_short": [],
+      "ve_religious_protection_protected_desc": [],
+      "ve_low_cb_name": [],
+      "ve_vassalization_low_cb": [],
+      "ve_vassalization_low_cb_desc": [],
+      "ve_low_war_name": [],
+      "ve_low_war_name_base": [],
+      "ve_default_cb_name": [],
+      "ve_default_war_name": [],
+      "ve_default_war_name_base": [],
+      "ve_high_cb_name": [],
+      "ve_vassalization_high_cb": [],
+      "ve_vassalization_high_cb_desc": [],
+      "ve_high_war_name": [],
+      "ve_high_war_name_base": [],
+      "ve_religious_cb_name": [],
+      "ve_vassalization_religious_cb": [],
+      "ve_vassalization_religious_cb_desc": [],
+      "ve_religious_war_name": [],
+      "ve_religious_war_name_base": []
+    }
+  }
+}
