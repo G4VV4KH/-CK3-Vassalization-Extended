@@ -15,13 +15,13 @@
 
 ## A kingdom can bend the knee
 
-Bring a neighboring ruler into your realm without a county ceiling. Choose their obligations and religious rights before declaring war.
+Vassalize a neighboring ruler without a county ceiling; choose obligations and religious rights before war.
 
 ## Choose the terms of submission
 
 Removes the county limit from the existing **Forced Vassalization** casus belli without replacing it.
 
-Targets must remain independent neighbors of lower rank. Access still requires the vanilla perk or another qualifying vanilla route; all other war restrictions remain.
+Targets must be independent neighbors of lower rank. The vanilla perk or another qualifying vanilla route is still required; other war restrictions remain.
 
 | Terms | Feudal taxes / levies, before modifiers | Prestige cost | Defeat reparations |
 | --- | --- | --- | --- |
@@ -30,15 +30,15 @@ Targets must remain independent neighbors of lower rank. Access still requires t
 | High obligations | 15% / 35% | 150% of ordinary | 150% of ordinary |
 | Religious protection | 10% / 10%, with protection | 75% of ordinary | 75% of ordinary |
 
-Non-feudal targets offer **Normal Obligations** and **Religious Protection**. Both keep their government's ordinary financial and military obligations; the protection option adds religious rights. The religious option remains visible but cannot be used to declare war when the vanilla conditions for granting religious protection are not met.
+Non-feudal targets offer **Normal Obligations** and **Religious Protection**, keeping their government's ordinary financial and military obligations. Protection adds religious rights; its option stays visible but cannot start war unless vanilla protection conditions are met.
 
-Prestige cost still scales with the target's counties and title rank before the selected terms modify it. Ordinary defeat reparations normally use three annual incomes of the attacker; special income and cultural rules still apply. Religious piety costs and the remaining victory, white-peace and defeat effects retain their vanilla rules.
+Terms modify prestige cost after scaling by target counties and title rank. Ordinary defeat reparations normally use three annual attacker incomes; special income and cultural rules still apply. Religious piety costs and other victory, white-peace and defeat effects remain vanilla.
 
-Victory keeps the defeated ruler's titles and makes them a direct vassal. The chosen feudal obligations count as an agreed contract change, applying the ordinary restriction on another negotiation. Low/high-obligation wars invalidate if the target ceases to use a feudal government during the war.
+Victory makes the defeated ruler a direct vassal with their titles intact. Chosen feudal obligations count as an agreed contract change, restricting renegotiation normally. Low/high-obligation wars invalidate if the target stops being feudal during war.
 
 ## Religious protection and the cost of refusing it
 
-Protection prevents the liege from demanding the vassal's conversion, using Convert Faith in County in protected lands, or using faith alone to avoid tyranny when revoking titles. It does **not** prevent every title revocation. The religious guarantee is a peace term and cannot be removed through ordinary contract negotiation; changing faith does not erase it.
+Protection blocks demands for the vassal's conversion, Convert Faith in County in protected lands, and faith-only tyranny exemptions for revocation. It does **not** block every revocation. This peace term survives faith changes and cannot be removed by ordinary contract negotiation.
 
 Eligibility follows the vanilla religious-protection checkbox: the rulers must have different faiths, with the vanilla Jizya/nonbeliever-tax restriction and its existing-contract exception. This condition is checked when declaring war. If protection was available and the attacker chose another vassalization option, **attacker defeat costs one level of devotion**, in addition to normal consequences. The risk is inherited with the war and is not recalculated after a faith change. White peace does not incur this extra penalty.
 
@@ -49,17 +49,17 @@ Peaceful **Offer Vassalization** and **Swear Fealty** retain their existing cond
 1. Enable **Vassalization Extended** in your launcher playset.
 2. Obtain access to Forced Vassalization and choose a neighboring independent ruler of lower rank.
 3. Open **Declare War**, expand **Vassalization — choose the terms**, and select a profile.
-4. Read its tooltip and victory/defeat preview, then review the price before declaring war.
+4. Read the tooltip, victory/defeat preview and price before declaring war.
 
 ## Compatibility and load order
 
 Replaces `common/casus_belli_types/00_vassalization.txt`, `gui/interaction_declare_war.gui` and `common/subject_contracts/groups/subject_contract_groups.txt`. Adds a religious peace obligation to the vanilla vassal contract groups and overrides the Forced Vassalization concept description in all nine CK3 languages. Other mods changing these files, groups or descriptions need a compatibility review; load order alone cannot merge their changes.
 
-No total-conversion compatibility is claimed. The mod adds no new DLC requirement; vanilla unlock routes retain their own requirements.
+No total-conversion compatibility is claimed. No new DLC is required; vanilla unlock requirements remain.
 
 ## Saves and known limits
 
-The mod adds three CB IDs, war variables and a contract obligation. **Keep the mod enabled for campaigns using these wars or protected contracts.** Removing it or downgrading during such a campaign is unsupported. Back up your save before installing or updating the mod.
+Adds three CB IDs, war variables and a contract obligation. **Keep the mod enabled for campaigns using these wars or protected contracts.** Removal or downgrade in such campaigns is unsupported. Back up saves before installing/updating.
 
 Wars already active under the original CB before this update retain their former resolution and do not acquire the new devotion penalty. Existing contract obligation order is preserved; the new religious peace term is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
 
@@ -84,6 +84,8 @@ Email: g4vv4kh@gmail.com
 
 ## My other mods
 
+### Standalone mods
+
 - [Parley: The Negotiating Table](https://steamcommunity.com/sharedfiles/filedetails/?id=3811090081) — negotiate diplomatic agreements.
 - [Marriage Calculation Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3811100163) — compare and sort marriage candidates.
 - [Your Own Hegemony](https://steamcommunity.com/sharedfiles/filedetails/?id=3811201582) — found a custom hegemony.
@@ -92,7 +94,9 @@ Email: g4vv4kh@gmail.com
 - [Tax Collection Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815381275) — automatically assign tax collectors and optimize tax jurisdictions.
 - [Council Assignment Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815689627) — automate council appointments and optimize councillor assignments.
 
-These mods are optional.
+### Compatibility patches
+
+- [[compatch] CAA + CA](https://steamcommunity.com/sharedfiles/filedetails/?id=3816373375) — use Council Assignment Automation and Council Autopilot together.
 
 ## Credits
 
