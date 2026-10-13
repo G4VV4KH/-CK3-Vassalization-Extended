@@ -340,7 +340,7 @@ vassalization_cb = {
 
 		multiply = pam_peace_of_god_coreligionist_war_ai_score_value
 		multiply = zealous_war_on_head_of_faith_ai_score_value
-		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
+		multiply = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 		multiply = ve_default_ai_weight
 	}
 }
@@ -687,7 +687,7 @@ ve_vassalization_low_cb = {
 
 		multiply = pam_peace_of_god_coreligionist_war_ai_score_value
 		multiply = zealous_war_on_head_of_faith_ai_score_value
-		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
+		multiply = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 		multiply = ve_low_ai_weight
 	}
 }
@@ -1034,7 +1034,7 @@ ve_vassalization_high_cb = {
 
 		multiply = pam_peace_of_god_coreligionist_war_ai_score_value
 		multiply = zealous_war_on_head_of_faith_ai_score_value
-		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
+		multiply = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 		multiply = ve_high_ai_weight
 	}
 }
@@ -1382,7 +1382,7 @@ ve_vassalization_religious_cb = {
 
 		multiply = pam_peace_of_god_coreligionist_war_ai_score_value
 		multiply = zealous_war_on_head_of_faith_ai_score_value
-		add = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
+		multiply = frankokratia_leader_protection_value #Set back to 0. Declaring war on the frankokratia leader can really ruin the whole thing
 		multiply = ve_religious_ai_weight
 	}
 }

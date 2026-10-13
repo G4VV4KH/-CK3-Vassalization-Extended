@@ -1,4 +1,4 @@
-version="0.2.2"
+version="0.2.3"
 name="Vassalization Extended"
 tags={
 	"Gameplay"
@@ -6,4 +6,3 @@ tags={
 	"Warfare"
 }
 supported_version="1.20.*"
-picture="thumbnail.png"

@@ -1,0 +1,1 @@
+Updated for CK3 1.20.1. Fixed AI war weighting so all four vassalization profiles retain vanilla Frankokratia protection and completed-story restrictions. Peace terms, GUI, costs and translations remain unchanged.

@@ -1,10 +1,8 @@
-<!-- Generated from publishing/description.en.md; edit the source. -->
-
 # Vassalization Extended
 
 ## At a glance
 
-- 🟢 **Version 0.2.2** · Targets CK3 **1.20.0.4**.
+- 🟢 **Version 0.2.3** · Targets CK3 **1.20.1**.
 - 🟢 **Standalone:** no other mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
@@ -104,22 +102,11 @@ Cover artwork was generated with AI. Gallery images are authentic Crusader Kings
 
 ## Screenshots
 
-Choosing vassalization terms
+![Select vassalization terms](docs/images/01-vassalization-options.jpg)
 
-![Choosing vassalization terms](publishing/media/gallery/01-vassalization-options.jpg)
+![Low-obligation victory](docs/images/02-low-obligations-victory.jpg)
 
-Low Obligations: victory preview
+![Low-obligation defeat](docs/images/03-low-obligations-defeat.jpg)
 
-![Low Obligations: victory preview](publishing/media/gallery/02-low-obligations-victory.jpg)
+![Low-obligation white peace](docs/images/04-low-obligations-white-peace.jpg)
 
-Low Obligations: defeat preview
-
-![Low Obligations: defeat preview](publishing/media/gallery/03-low-obligations-defeat.jpg)
-
-Low Obligations: white-peace preview
-
-![Low Obligations: white-peace preview](publishing/media/gallery/04-low-obligations-white-peace.jpg)
-
-## Contributing
-
-See [development notes](dev.md) for implementation details and validation records.

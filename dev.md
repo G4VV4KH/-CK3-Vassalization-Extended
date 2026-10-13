@@ -226,3 +226,11 @@ so no whole-log-clean claim accompanies publication preparation.
 ## CAA family metadata revision
 
 The current publication copy includes all seven other maintained mods, with Steam Workshop links. Update only the canonical My other mods block and project that block into the existing README and platform outputs; preserve the rest of each platform description. Parley and Vassalization Extended Steam exports use whitespace-only BBCode compaction to remain within the 8,000-byte UTF-8 CRLF form limit. Recheck the current shared publication contract and scoped release metadata guide before publishing. Runtime, version, archives, media, and prior localization evidence are unchanged.
+
+## Release 0.2.3 — CK3 1.20.1
+
+Vassalization Extended 0.2.3 — CK3 1.20.1
+
+Updated for CK3 1.20.1. Fixed AI war weighting so all four vassalization profiles retain vanilla Frankokratia protection and completed-story restrictions. Peace terms, GUI, costs and translations remain unchanged.
+
+Current publication follows contract 1.8.0: static localization coverage for all CK3 languages; tested development gameplay evidence may be inherited after exact source checks; no duplicate production run or mandatory Paradox/Nexus re-download. Older instructions above retain their historical scope. The committed runtime matches this release package. Evidence is scoped; this is not a blanket multiplayer, visual or full-campaign compatibility claim.
