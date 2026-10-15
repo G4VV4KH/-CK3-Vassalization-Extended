@@ -234,3 +234,11 @@ Vassalization Extended 0.2.3 — CK3 1.20.1
 Updated for CK3 1.20.1. Fixed AI war weighting so all four vassalization profiles retain vanilla Frankokratia protection and completed-story restrictions. Peace terms, GUI, costs and translations remain unchanged.
 
 Current publication follows contract 1.8.0: static localization coverage for all CK3 languages; tested development gameplay evidence may be inherited after exact source checks; no duplicate production run or mandatory Paradox/Nexus re-download. Older instructions above retain their historical scope. The committed runtime matches this release package. Evidence is scoped; this is not a blanket multiplayer, visual or full-campaign compatibility claim.
+
+## Compatibility metadata — CK3 1.20.1.1 (2026-10-15)
+
+Version 0.2.3 now targets CK3 1.20.1.1 (Steam build 25913294). This is a publication metadata update; runtime files, mod version, release history and existing download archives are unchanged.
+
+The upstream comparison used the complete Steam manifests for 1.20.1 and 1.20.1.1 and verified the installed main game, Windows and launcher files against the current manifests. All main-game GUI files and gameplay scripts used by this mod retain their upstream hashes; changes are concentrated in translations, name equivalency and French customizable localization. The executable changed. Mod-specific source and localization checks are recorded in the maintained compatibility assessment and release journal.
+
+Earlier native reports retain their original source, game build and scenario coverage. This metadata revision does not claim a fresh native PASS on 1.20.1.1. Visual layout, multiplayer and performance retain their previously recorded limits. Edit the canonical publication source and regenerate its current outputs; preserve historical release records.

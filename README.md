@@ -2,7 +2,7 @@
 
 ## At a glance
 
-- 🟢 **Version 0.2.3** · Targets CK3 **1.20.1**.
+- 🟢 **Version 0.2.3** · Targets CK3 **1.20.1.1**.
 - 🟢 **Standalone:** no other mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
