@@ -19,7 +19,7 @@ Vassalize a neighboring ruler without a county ceiling; choose obligations and r
 
 Removes the county limit from the existing **Forced Vassalization** casus belli without replacing it.
 
-Targets must be independent neighbors of lower rank. The vanilla perk or another qualifying vanilla route is still required; other war restrictions remain.
+Targets must be independent, lower-rank neighbors. A vanilla perk or other qualifying vanilla route is required; other war restrictions remain.
 
 | Terms | Feudal taxes / levies, before modifiers | Prestige cost | Defeat reparations |
 | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ Protection blocks demands for the vassal's conversion, Convert Faith in County i
 
 Eligibility follows the vanilla religious-protection checkbox: the rulers must have different faiths, with the vanilla Jizya/nonbeliever-tax restriction and its existing-contract exception. This condition is checked when declaring war. If protection was available and the attacker chose another vassalization option, **attacker defeat costs one level of devotion**, in addition to normal consequences. The risk is inherited with the war and is not recalculated after a faith change. White peace does not incur this extra penalty.
 
-Peaceful **Offer Vassalization** and **Swear Fealty** retain their existing conditions and acceptance scores.
+Peaceful **Offer Vassalization** and **Swear Fealty** conditions and acceptance stay unchanged.
 
 ## Getting started
 
@@ -59,9 +59,9 @@ No total-conversion compatibility is claimed. No new DLC is required; vanilla un
 
 Adds three CB IDs, war variables and a contract obligation. **Keep the mod enabled for campaigns using these wars or protected contracts.** Removal or downgrade in such campaigns is unsupported. Back up saves before installing/updating.
 
-Wars already active under the original CB before this update retain their former resolution and do not acquire the new devotion penalty. Existing contract obligation order is preserved; the new religious peace term is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
+Wars active under the original CB before this update retain their resolution without the new devotion penalty. Existing contract obligation order is preserved; the new religious peace term is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
 
-Diplomatic acceptance is unchanged. AI can choose the new profiles with explicit personality preferences; the scripted Conqueror forced-war route continues to use ordinary vassalization. Some vanilla memory and war-message classifications recognize only the original CB and use generic text for new variants.
+Diplomatic acceptance is unchanged. AI can choose new profiles by personality; the scripted Conqueror forced-war route still uses ordinary vassalization. Some vanilla memory and war-message classifications recognize only the original CB and use generic text for new variants.
 
 ## Feedback and support
 
@@ -91,6 +91,7 @@ Email: g4vv4kh@gmail.com
 - [Nomad Autorefill](https://steamcommunity.com/sharedfiles/filedetails/?id=3814793283) — automatically reinforce nomadic Men-at-Arms using herd or gold.
 - [Tax Collection Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815381275) — automatically assign tax collectors and optimize tax jurisdictions.
 - [Council Assignment Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815689627) — automate council appointments and optimize councillor assignments.
+- [Strategist Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3827659479) — plan armies, recruitment and wars.
 
 ### Compatibility patches
 
