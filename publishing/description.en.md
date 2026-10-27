@@ -13,13 +13,13 @@
 
 ## A kingdom can bend the knee
 
-Vassalize a neighboring ruler without a county ceiling; choose obligations and religious rights before war.
+Vassalize a neighbor without a county ceiling; choose obligations and religious rights before war.
 
 ## Choose the terms of submission
 
-Removes the county limit from the existing **Forced Vassalization** casus belli without replacing it.
+Removes the existing **Forced Vassalization** county limit without replacing the casus belli.
 
-Targets must be independent, lower-rank neighbors. A vanilla perk or other qualifying vanilla route is required; other war restrictions remain.
+Targets must be independent, lower-rank neighbors. A vanilla perk or qualifying vanilla route is required; other war restrictions remain.
 
 | Terms | Feudal taxes / levies, before modifiers | Prestige cost | Defeat reparations |
 | --- | --- | --- | --- |
@@ -32,11 +32,11 @@ Non-feudal targets offer **Normal Obligations** and **Religious Protection**, ke
 
 Terms modify prestige cost after scaling by target counties and title rank. Ordinary defeat reparations normally use three annual attacker incomes; special income and cultural rules still apply. Religious piety costs and other victory, white-peace and defeat effects remain vanilla.
 
-Victory makes the defeated ruler a direct vassal with their titles intact. Chosen feudal obligations count as an agreed contract change, restricting renegotiation normally. Low/high-obligation wars invalidate if the target stops being feudal during war.
+Victory makes the defeated ruler a direct vassal with their titles intact. Chosen feudal obligations count as an agreed contract change, normally restricting renegotiation. Low/high-obligation wars invalidate if the target stops being feudal during war.
 
 ## Religious protection and the cost of refusing it
 
-Protection blocks demands for the vassal's conversion, Convert Faith in County in protected lands, and faith-only tyranny exemptions for revocation. It does **not** block every revocation. This peace term survives faith changes and cannot be removed by ordinary contract negotiation.
+Protection blocks vassal conversion demands, Convert Faith in County in protected lands, and faith-only revocation tyranny exemptions. It does **not** block every revocation. This peace term survives faith changes and cannot be removed by ordinary contract negotiation.
 
 Eligibility follows the vanilla religious-protection checkbox: the rulers must have different faiths, with the vanilla Jizya/nonbeliever-tax restriction and its existing-contract exception. This condition is checked when declaring war. If protection was available and the attacker chose another vassalization option, **attacker defeat costs one level of devotion**, in addition to normal consequences. The risk is inherited with the war and is not recalculated after a faith change. White peace does not incur this extra penalty.
 
@@ -47,25 +47,25 @@ Peaceful **Offer Vassalization** and **Swear Fealty** conditions and acceptance 
 1. Enable **Vassalization Extended** in your launcher playset.
 2. Obtain access to Forced Vassalization and choose a neighboring independent ruler of lower rank.
 3. Open **Declare War**, expand **Vassalization — choose the terms**, and select a profile.
-4. Read the tooltip, victory/defeat preview and price before declaring war.
+4. Read the tooltip, victory/defeat preview and price before war.
 
 ## Compatibility and load order
 
 Replaces `common/casus_belli_types/00_vassalization.txt`, `gui/interaction_declare_war.gui` and `common/subject_contracts/groups/subject_contract_groups.txt`. Adds a religious peace obligation to the vanilla vassal contract groups and overrides the Forced Vassalization concept description in all nine CK3 languages. Other mods changing these files, groups or descriptions need a compatibility review; load order alone cannot merge their changes.
 
-No total-conversion compatibility is claimed. No new DLC is required; vanilla unlock requirements remain.
+No total-conversion compatibility is claimed. No new DLC; vanilla unlock requirements remain.
 
 ## Saves and known limits
 
 Adds three CB IDs, war variables and a contract obligation. **Keep the mod enabled for campaigns using these wars or protected contracts.** Removal or downgrade in such campaigns is unsupported. Back up saves before installing/updating.
 
-Wars active under the original CB before this update retain their resolution without the new devotion penalty. Existing contract obligation order is preserved; the new religious peace term is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
+Existing original-CB wars retain their resolution without the new devotion penalty. Existing contract obligation order remains; religious peace is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
 
-Diplomatic acceptance is unchanged. AI can choose new profiles by personality; the scripted Conqueror forced-war route still uses ordinary vassalization. Some vanilla memory and war-message classifications recognize only the original CB and use generic text for new variants.
+Diplomatic acceptance is unchanged. AI can choose new profiles by personality; the scripted Conqueror forced-war route still uses ordinary vassalization. Some vanilla memory/war-message classifications recognize only the original CB, giving new variants generic text.
 
 ## Feedback and support
 
-Include CK3 version, mods/load order, both rulers' ranks, target size, unlock route and a screenshot of the unavailable CB or error.
+Include CK3 version, mods/load order, ruler ranks, target size, unlock route and a screenshot of the blocked CB or error.
 
 [Report an issue on GitHub](https://github.com/G4VV4KH/-CK3-Vassalization-Extended/issues)
 
@@ -92,6 +92,7 @@ Email: g4vv4kh@gmail.com
 - [Tax Collection Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815381275) — automatically assign tax collectors and optimize tax jurisdictions.
 - [Council Assignment Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815689627) — automate council appointments and optimize councillor assignments.
 - [Strategist Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3827659479) — plan armies, recruitment and wars.
+- [Title Domination](https://steamcommunity.com/sharedfiles/filedetails/?id=3828276945) — proclaim uncreated titles through diplomacy and war.
 
 ### Compatibility patches
 
