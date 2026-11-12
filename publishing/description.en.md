@@ -17,9 +17,9 @@ Vassalize a neighbor without a county ceiling; choose obligations and religious 
 
 ## Choose the terms of submission
 
-Removes the existing **Forced Vassalization** county limit without replacing the casus belli.
+Removes the **Forced Vassalization** county limit; keeps the existing casus belli.
 
-Targets must be independent, lower-rank neighbors. A vanilla perk or qualifying vanilla route is required; other war restrictions remain.
+Targets must be independent, lower-rank neighbors. Requires a vanilla perk or qualifying vanilla route; other war restrictions remain.
 
 | Terms | Feudal taxes / levies, before modifiers | Prestige cost | Defeat reparations |
 | --- | --- | --- | --- |
@@ -30,15 +30,15 @@ Targets must be independent, lower-rank neighbors. A vanilla perk or qualifying 
 
 Non-feudal targets offer **Normal Obligations** and **Religious Protection**, keeping their government's ordinary financial and military obligations. Protection adds religious rights; its option stays visible but cannot start war unless vanilla protection conditions are met.
 
-Terms modify prestige cost after scaling by target counties and title rank. Ordinary defeat reparations normally use three annual attacker incomes; special income and cultural rules still apply. Religious piety costs and other victory, white-peace and defeat effects remain vanilla.
+Terms modify prestige cost after target-county/title-rank scaling. Ordinary defeat reparations normally use three annual attacker incomes; special income and cultural rules apply. Religious piety costs and other victory, white-peace and defeat effects remain vanilla.
 
-Victory makes the defeated ruler a direct vassal with their titles intact. Chosen feudal obligations count as an agreed contract change, normally restricting renegotiation. Low/high-obligation wars invalidate if the target stops being feudal during war.
+Victory makes the defeated ruler a direct vassal, retaining their titles. Chosen feudal obligations count as an agreed contract change, normally restricting renegotiation. Low/high-obligation wars invalidate if the target stops being feudal.
 
 ## Religious protection and the cost of refusing it
 
-Protection blocks vassal conversion demands, Convert Faith in County in protected lands, and faith-only revocation tyranny exemptions. It does **not** block every revocation. This peace term survives faith changes and cannot be removed by ordinary contract negotiation.
+Protection blocks vassal conversion demands, Convert Faith in County in protected lands, and faith-only revocation tyranny exemptions. It does **not** block every revocation. It survives faith changes; ordinary contract negotiation cannot remove it.
 
-Eligibility follows the vanilla religious-protection checkbox: the rulers must have different faiths, with the vanilla Jizya/nonbeliever-tax restriction and its existing-contract exception. This condition is checked when declaring war. If protection was available and the attacker chose another vassalization option, **attacker defeat costs one level of devotion**, in addition to normal consequences. The risk is inherited with the war and is not recalculated after a faith change. White peace does not incur this extra penalty.
+Eligibility uses vanilla's religious-protection checkbox: different faiths, the Jizya/nonbeliever-tax restriction and its existing-contract exception, checked at war declaration. If protection was available but another vassalization option was chosen, **attacker defeat costs one level of devotion**, in addition to normal consequences. The war inherits this risk; faith changes do not recalculate it. White peace has no extra penalty.
 
 Peaceful **Offer Vassalization** and **Swear Fealty** conditions and acceptance stay unchanged.
 
@@ -59,13 +59,13 @@ No total-conversion compatibility is claimed. No new DLC; vanilla unlock require
 
 Adds three CB IDs, war variables and a contract obligation. **Keep the mod enabled for campaigns using these wars or protected contracts.** Removal or downgrade in such campaigns is unsupported. Back up saves before installing/updating.
 
-Existing original-CB wars retain their resolution without the new devotion penalty. Existing contract obligation order remains; religious peace is appended. Total-conversion governments with custom contract groups need an adapter for religious protection.
+Existing original-CB wars retain their resolution without the new devotion penalty. Contract obligation order remains; religious peace is appended. Total-conversion governments with custom contract groups need a religious-protection adapter.
 
 Diplomatic acceptance is unchanged. AI can choose new profiles by personality; the scripted Conqueror forced-war route still uses ordinary vassalization. Some vanilla memory/war-message classifications recognize only the original CB, giving new variants generic text.
 
 ## Feedback and support
 
-Include CK3 version, mods/load order, ruler ranks, target size, unlock route and a screenshot of the blocked CB or error.
+Report CK3 version, mods/load order, ruler ranks, target size, unlock route and screenshot of the blocked CB or error.
 
 [Report an issue on GitHub](https://github.com/G4VV4KH/-CK3-Vassalization-Extended/issues)
 
@@ -93,6 +93,7 @@ Email: g4vv4kh@gmail.com
 - [Council Assignment Automation](https://steamcommunity.com/sharedfiles/filedetails/?id=3815689627) — automate council appointments and optimize councillor assignments.
 - [Strategist Assistant](https://steamcommunity.com/sharedfiles/filedetails/?id=3827659479) — plan armies, recruitment and wars.
 - [Title Domination](https://steamcommunity.com/sharedfiles/filedetails/?id=3828276945) — proclaim uncreated titles through diplomacy and war.
+- [Accolade Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3836819350) — choose accolade attributes or knights first and set rank limits.
 
 ### Compatibility patches
 
