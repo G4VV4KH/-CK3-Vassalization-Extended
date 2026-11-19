@@ -2,7 +2,7 @@
 
 ## At a glance
 
-- 🟢 **Version 0.2.3** · Targets CK3 **1.20.1.2**.
+- 🟢 **Version 0.2.4** · Targets CK3 **1.21.0.3**.
 - 🟢 **Standalone:** no other mod required.
 - 🟢 **Forced Vassalization has no target county limit.**
 - 🟢 **Four peace terms in one expandable Vassalization group.**
@@ -19,7 +19,7 @@ Vassalize a neighbor without a county ceiling; choose obligations and religious 
 
 Removes the **Forced Vassalization** county limit; keeps the existing casus belli.
 
-Targets must be independent, lower-rank neighbors. Requires a vanilla perk or qualifying vanilla route; other war restrictions remain.
+Target a lower-rank independent neighbor. Florin's Guelph/Ghibelline, merchant and republic war rules apply.
 
 | Terms | Feudal taxes / levies, before modifiers | Prestige cost | Defeat reparations |
 | --- | --- | --- | --- |
@@ -59,7 +59,7 @@ No total-conversion compatibility is claimed. No new DLC; vanilla unlock require
 
 Adds three CB IDs, war variables and a contract obligation. **Keep the mod enabled for campaigns using these wars or protected contracts.** Removal or downgrade in such campaigns is unsupported. Back up saves before installing/updating.
 
-Existing original-CB wars retain their resolution without the new devotion penalty. Contract obligation order remains; religious peace is appended. Total-conversion governments with custom contract groups need a religious-protection adapter.
+Existing original-CB wars retain their resolution without the new devotion penalty. Religious peace follows Florin's native obligations. Total-conversion governments with custom contract groups need a religious-protection adapter.
 
 Diplomatic acceptance is unchanged. AI can choose new profiles by personality; the scripted Conqueror forced-war route still uses ordinary vassalization. Some vanilla memory/war-message classifications recognize only the original CB, giving new variants generic text.
 

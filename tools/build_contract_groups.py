@@ -16,8 +16,9 @@ import sys
 
 MOD_ROOT = Path(__file__).resolve().parents[1]
 GROUP_PATH = Path("common/subject_contracts/groups/subject_contract_groups.txt")
-UPSTREAM_VERSION = "1.20.0.3"
-UPSTREAM_SHA256 = "a2e3cf78c5dae7e6656b8e95d5f88a9b8584909d3908496828b0a47ce41056ea"
+DEFAULT_GAME_ROOT = Path("H:/SteamLibrary/steamapps/common/Crusader Kings III/game")
+UPSTREAM_VERSION = "1.21.0.3"
+UPSTREAM_SHA256 = "ced24a51651390b6c75d53cc12826987a0bb734bc8b59b1c0a35326c725cdb92"
 OBLIGATION = "ve_religious_protection"
 EXPECTED_GROUPS = (
     "feudal_vassal", "republic_vassal", "theocracy_vassal", "clan_vassal",
@@ -127,7 +128,7 @@ def verify_semantic_delta(source: str, generated: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--game-root", type=Path, required=True)
+    parser.add_argument("--game-root", type=Path, default=DEFAULT_GAME_ROOT)
     parser.add_argument("--check", action="store_true", help="verify existing output without writing")
     args = parser.parse_args()
     try:

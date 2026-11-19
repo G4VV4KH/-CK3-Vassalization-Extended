@@ -1,5 +1,11 @@
 # Vassalization Extended development
 
+## 0.2.4 for CK3 1.21.0.3
+
+The contract overlay preserves all 24 Florin groups and adds religious protection at the end of the 14 vassal groups. The four CB variants inherit Florin's declaration rules and shared AI scoring. Native tests verified a merchant subject contract, a religious vassalization victory and preservation of the granted rights after conversion.
+
+## Historical 0.2.2 development record
+
 This portable source projection is **Vassalization Extended 0.2.2**, targeting
 CK3 **1.20.0.4**. It corrects player/other-character grammar in 52 localization
 values across English, French, German, Polish, Russian, Simplified Chinese and

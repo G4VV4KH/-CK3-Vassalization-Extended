@@ -1,6 +1,6 @@
 {
-  "game_version": "1.20.0.3",
+  "game_version": "1.21.0.3",
   "source": "common/casus_belli_types/00_vassalization.txt",
-  "cb_sha256": "b95049fb6beb1dbaa21b8862bacfb2564f734a33202fe1c3ec19ec7ee289c4eb",
-  "change": "Remove only the defender county-count gate; retain every other CB subtree."
+  "cb_sha256": "3d34ede6e1072f21dd2898c3d8dc798c15674bf0dcf5b98eeed6380809dde231",
+  "change": "Four CB profiles inherit the Florin unlock, merchant and republic restrictions, tier gate and opposing-side rule. The mod keeps its county-cap removal, custom terms, costs and AI preference."
 }

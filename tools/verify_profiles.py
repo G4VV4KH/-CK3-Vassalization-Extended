@@ -163,11 +163,19 @@ def main():
         "cb_name", "war_name", "war_name_base", "interface_priority",
         "on_victory_desc", "on_defeat_desc", "ai_score_mult",
     }
+    war_values = (args.game_root / "common/script_values/00_war_values.txt").read_text(encoding="utf-8-sig")
+    common_ai = parse(named_block(war_values, "common_cb_ai_score_mult"))
+    check("shared Florin CB score applies Frankokratia protection", lambda: require(
+        common_ai.count(("multiply", "=", "frankokratia_leader_protection_value")) == 1,
+        "Shared AI value must multiply by the Frankokratia protection value"))
     immutable = [entry for entry in vanilla if entry[0] not in mutable]
     for cb_id, (profile, cost_multiplier, reparations) in PROFILES.items():
         if len(entries(mod, cb_id)) != 1:
             continue
         cb = one(mod, cb_id)
+        check(f"{profile}: shared Florin protection applies once", lambda cb=cb: require(
+            one(cb, "ai_score_mult").count(("multiply", "=", "common_cb_ai_score_mult")) == 1,
+            "Profile must use the shared Florin AI protection value"))
         check(f"{profile}: unrelated vanilla behavior retained", lambda cb=cb: require(
             [entry for entry in cb if entry[0] not in mutable] == immutable,
             "A vanilla subtree outside the reviewed extension points changed"))
